@@ -27,6 +27,8 @@ import {
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import "./admin.css";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const defaultProjects = [
   { id: 1, title: "AURA", category: "Skincare", type: "CGI", status: "Published" },
   { id: 2, title: "NOIR", category: "Clothing", type: "Cinematic", status: "Published" },
@@ -138,7 +140,7 @@ export default function Admin() {
     return (
       <div className="admin-login">
         <div className="login-box">
-          <div className="admin-logo"><img className="admin-logo-mark" src="/growthify-mark.jpeg" alt="" /><span>Growthify</span></div>
+          <div className="admin-logo"><img className="admin-logo-mark" src={`${baseUrl}growthify-mark.jpeg`} alt="" /><span>Growthify</span></div>
           <p className="admin-label">ADMIN WORKSPACE</p>
           <h1>Welcome back.</h1>
           <p className="login-copy">Sign in to manage your website content and enquiries.</p>
@@ -173,7 +175,7 @@ export default function Admin() {
             {loginError && <p className="login-error">{loginError}</p>}
             <button className="login-button" type="submit" disabled={isLoading || !firebaseConfigured}>{isLoading ? "Signing in…" : "Sign in"} <ExternalLink size={16} /></button>
           </form>
-          <a className="back-site" href="/">← Back to website</a>
+          <a className="back-site" href={baseUrl}>← Back to website</a>
         </div>
       </div>
     );
@@ -245,7 +247,7 @@ function AdminWorkspace({ onLogout }) {
     <div className="admin-panel">
       <aside className={`admin-sidebar ${sidebarOpen ? "open" : ""}`}>
         <div className="sidebar-brand">
-          <div className="admin-logo"><img className="admin-logo-mark" src="/growthify-mark.jpeg" alt="" /><span>Growthify</span></div>
+          <div className="admin-logo"><img className="admin-logo-mark" src={`${baseUrl}growthify-mark.jpeg`} alt="" /><span>Growthify</span></div>
           <button className="close-sidebar" onClick={() => setSidebarOpen(false)}><X size={20} /></button>
         </div>
         <div className="workspace-label">WORKSPACE</div>
@@ -257,7 +259,7 @@ function AdminWorkspace({ onLogout }) {
           ))}
         </nav>
         <div className="sidebar-bottom">
-          <a href="/" className="view-site"><ExternalLink size={16} /> View website</a>
+          <a href={baseUrl} className="view-site"><ExternalLink size={16} /> View website</a>
           <button className="logout" onClick={onLogout}><LogOut size={16} /> Sign out</button>
         </div>
       </aside>
@@ -298,7 +300,7 @@ function Dashboard({ projects, services, setActiveTab }) {
     <>
       <section className="welcome-banner">
         <div><span className="welcome-icon"><ShieldCheck size={20} /></span><div><h2>Your website is looking good.</h2><p>Manage your content and keep your digital presence up to date.</p></div></div>
-        <a href="/" target="_blank" rel="noreferrer">Open website <ExternalLink size={15} /></a>
+        <a href={baseUrl} target="_blank" rel="noreferrer">Open website <ExternalLink size={15} /></a>
       </section>
       <section className="admin-cards">{stats.map(({ label, value, detail, icon: Icon }) => <div className="admin-card" key={label}><div className="card-icon"><Icon size={18} /></div><span>{label}</span><strong>{value}</strong><small>{detail}</small></div>)}</section>
       <section className="dashboard-grid">

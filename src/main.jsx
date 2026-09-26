@@ -1,4 +1,10 @@
 import Admin from "./admin";
+
+const baseUrl = import.meta.env.BASE_URL;
+const appPath = window.location.pathname.startsWith(baseUrl)
+  ? `/${window.location.pathname.slice(baseUrl.length)}`
+  : window.location.pathname;
+const normalizedAppPath = appPath.replace(/\/$/, "") || "/";
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import {
@@ -201,7 +207,7 @@ function AuthPage() {
 
   return (
     <main className="auth-page">
-      <a className="auth-brand" href="/"><img src="/growthify-mark.jpeg" alt="" />Growthify</a>
+      <a className="auth-brand" href={baseUrl}><img src={`${baseUrl}growthify-mark.jpeg`} alt="" />Growthify</a>
       <section className="auth-card">
         <p className="eyebrow">{mode === "login" ? "WELCOME BACK" : "JOIN GROWTHIFY"}</p>
         <h1>{mode === "login" ? "Make your brand matter." : "Build what’s next."}</h1>
@@ -293,7 +299,7 @@ function App() {
 
       <header className="navbar">
         <a href="#home" className="logo" onClick={closeMenu}>
-          <img className="logo-mark" src="/growthify-mark.jpeg" alt="" />
+          <img className="logo-mark" src={`${baseUrl}growthify-mark.jpeg`} alt="" />
           <span className="logo-wordmark">Growthify</span>
         </a>
 
@@ -699,7 +705,7 @@ function App() {
 
       <footer className="footer">
         <a href="#home" className="logo">
-          <img className="logo-mark" src="/growthify-mark.jpeg" alt="" />
+          <img className="logo-mark" src={`${baseUrl}growthify-mark.jpeg`} alt="" />
           <span className="logo-wordmark">Growthify</span>
         </a>
 
@@ -717,6 +723,6 @@ function App() {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {window.location.pathname === "/admin" ? <Admin /> : window.location.pathname === "/login" ? <AuthPage /> : <App />}
+    {normalizedAppPath === "/admin" ? <Admin /> : normalizedAppPath === "/login" ? <AuthPage /> : <App />}
   </React.StrictMode>
 );
