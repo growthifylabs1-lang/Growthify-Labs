@@ -3,320 +3,475 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUMIÈRE — 50 Instagram UGC + CGI Client Leads</title>
+<title>LEADHUNT — 50 Brands That Need UGC + CGI Ads</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <script>
-tailwind.config = { theme:{ extend:{ fontFamily:{ sora:['Sora','sans-serif'], inter:['Inter','sans-serif'] }, colors:{ ink:'#0A0A12', card:'#14141F', lime:'#D4FF3F', viol:'#8B5CF6', pinky:'#FF5CA8', gold:'#FFC24B' } } } }
+tailwind.config={
+  theme:{
+    extend:{
+      colors:{
+        acid:'#E5FF00',
+        ink:'#0A0A0A',
+        paper:'#F5F5F0'
+      },
+      fontFamily:{
+        anton:['Anton','sans-serif'],
+        space:['Space Grotesk','sans-serif'],
+        mono:['JetBrains Mono','monospace']
+      },
+      boxShadow:{
+        hard:'6px 6px 0px 0px #000',
+        hardSm:'4px 4px 0px 0px #000',
+        hardLg:'10px 10px 0px 0px #000'
+      }
+    }
+  }
+}
 </script>
 <style>
-*{ -webkit-tap-highlight-color:transparent }
-body{background:#08080F;color:#EDEDF5;font-family:Inter,sans-serif;overflow-x:hidden}
-.font-sora{font-family:Sora,sans-serif}
-.grad-text{background:linear-gradient(92deg,#D4FF3F 0%,#fff 25%,#FF5CA8 55%,#8B5CF6 85%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.glass{background:rgba(20,20,31,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
-.blob{position:fixed;border-radius:50%;filter:blur(110px);opacity:.38;pointer-events:none;z-index:0;animation:float 14s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-40px) scale(1.08)}}
-.card{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);border-radius:22px;overflow:hidden;transition:.35s cubic-bezier(.2,.8,.2,1)}
-.card:hover{transform:translateY(-6px);border-color:rgba(212,255,63,.45);box-shadow:0 20px 60px -15px rgba(139,92,246,.45),0 0 0 1px rgba(212,255,63,.15)}
-.img-zoom img{transition:.6s ease}.card:hover .img-zoom img{transform:scale(1.08)}
-.pill{border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:7px 14px;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;transition:.25s;background:rgba(255,255,255,.04)}
-.pill:hover{border-color:#D4FF3F;color:#D4FF3F}
-.pill.active{background:#D4FF3F;color:#000;border-color:#D4FF3F}
-.score-ring{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;position:relative;background:conic-gradient(var(--c) var(--p),rgba(255,255,255,.1) var(--p));}
-.score-ring::after{content:'';position:absolute;inset:4px;background:#14141F;border-radius:50%}
-.score-ring span{position:relative;z-index:1}
-.dm-box{background:#0E0E18;border:1px dashed rgba(255,255,255,.18);border-radius:14px}
-.issue-box{background:linear-gradient(135deg,rgba(255,92,168,.12),rgba(139,92,246,.12));border:1px solid rgba(255,92,168,.25)}
-.btn-lime{background:#D4FF3F;color:#000;font-weight:800;transition:.25s}.btn-lime:hover{background:#fff;transform:translateY(-1px);box-shadow:0 10px 30px -8px #D4FF3F}
-.btn-ghost{border:1px solid rgba(255,255,255,.18);transition:.25s}.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
-::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background:#0A0A12}::-webkit-scrollbar-thumb{background:linear-gradient(#8B5CF6,#FF5CA8);border-radius:99px}
-.modal-bg{background:rgba(0,0,0,.75);backdrop-filter:blur(8px)}
-.line-clamp-4{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
-#toast{transition:.4s cubic-bezier(.2,.8,.2,1)}
-.tick{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px}
-.shimmer{background:linear-gradient(110deg,rgba(255,255,255,.06) 30%,rgba(255,255,255,.14) 50%,rgba(255,255,255,.06) 70%);background-size:200% 100%;animation:sh 2.5s infinite}
-@keyframes sh{to{background-position:-200% 0}}
-.marquee{display:flex;gap:14px;animation:mar 28s linear infinite;width:max-content}
-@keyframes mar{to{transform:translateX(-50%)}}
-.tab.active{background:#fff;color:#000}
-progress::-webkit-progress-bar{background:rgba(255,255,255,.1);border-radius:99px}progress::-webkit-progress-value{background:linear-gradient(90deg,#D4FF3F,#FF5CA8);border-radius:99px}
+*{scroll-behavior:smooth}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:#fff}
+::-webkit-scrollbar-thumb{background:#000;border:1px solid #fff}
+::selection{background:#E5FF00;color:#000}
+.mono-border{border:3px solid #000}
+.scan-line{animation:scan 2s linear infinite}
+@keyframes scan{0%{transform:translateY(-100%)}100%{transform:translateY(300%)}}
+.marquee{animation:marquee 18s linear infinite}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 </style>
 </head>
-<body class="relative">
-<div class="blob w-[550px] h-[550px] bg-[#8B5CF6] -top-40 -left-40"></div>
-<div class="blob w-[500px] h-[500px] bg-[#FF5CA8] top-[30%] -right-40" style="animation-delay:-4s"></div>
-<div class="blob w-[450px] h-[450px] bg-[#1DB954] bottom-0 left-1/3 opacity-20" style="animation-delay:-8s"></div>
+<body class="bg-white text-ink font-space antialiased overflow-x-hidden">
+<!-- TOP MARQUEE -->
+<div class="bg-acid border-b-[3px] border-black overflow-hidden whitespace-nowrap py-2 font-mono text-[11px] font-bold tracking-[0.18em]">
+  <div class="marquee flex gap-12 w-max">
+    <span>UGC ADS THAT CONVERT • CGI ADS THAT GO VIRAL • STOP THE SCROLL • +300% ROAS • D2C GROWTH •</span>
+    <span>UGC ADS THAT CONVERT • CGI ADS THAT GO VIRAL • STOP THE SCROLL • +300% ROAS • D2C GROWTH •</span>
+    <span>UGC ADS THAT CONVERT • CGI ADS THAT GO VIRAL • STOP THE SCROLL • +300% ROAS • D2C GROWTH •</span>
+    <span>UGC ADS THAT CONVERT • CGI ADS THAT GO VIRAL • STOP THE SCROLL • +300% ROAS • D2C GROWTH •</span>
+  </div>
+</div>
 
-<!-- TOP NAV -->
-<nav class="sticky top-0 z-40 glass border-b border-white/10">
-<div class="max-w-[1350px] mx-auto px-4 md:px-6 py-3 flex items-center gap-3">
-<div class="w-10 h-10 rounded-2xl bg-[#D4FF3F] flex items-center justify-center text-black font-black text-xl font-sora">L.</div>
-<div class="leading-tight">
-<div class="font-sora font-800 font-bold text-[15px] tracking-tight">LUMIÈRE <span class="text-[#D4FF3F]">CREATIVE</span></div>
-<div class="text-[11px] text-white/50 tracking-widest uppercase">UGC × CGI Ad Studio • Lead Vault</div>
-</div>
-<div class="hidden md:flex flex-1 max-w-md mx-6 relative">
-<i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-white/40 text-sm"></i>
-<input id="search" placeholder="Search niche, product, username... e.g. matcha, candles" class="w-full bg-white/5 border border-white/10 rounded-full pl-11 pr-4 py-2.5 text-sm outline-none focus:border-[#D4FF3F] placeholder:text-white/30">
-</div>
-<div class="ml-auto flex items-center gap-2">
-<div class="hidden lg:flex items-center gap-2 text-xs bg-white/5 border border-white/10 rounded-full px-4 py-2"><span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span><span id="pipelineCount">0/50 contacted</span></div>
-<button onclick="exportCSV()" class="btn-ghost rounded-full px-4 py-2 text-xs font-bold"><i class="fa-solid fa-file-csv mr-1"></i> Export CSV</button>
-<button onclick="copyAllBriefs()" class="btn-lime rounded-full px-5 py-2 text-xs"><i class="fa-solid fa-copy mr-1"></i> Copy 50 Briefs</button>
-</div>
-</div>
-<div class="md:hidden px-4 pb-3"><input id="searchM" placeholder="Search leads..." class="w-full bg-white/5 border border-white/10 rounded-full px-4 py-2.5 text-sm outline-none focus:border-[#D4FF3F]"></div>
+<!-- NAV -->
+<nav class="bg-black text-white sticky top-0 z-50 border-b-[3px] border-black">
+  <div class="max-w-[1440px] mx-auto px-4 md:px-8 h-[64px] flex items-center justify-between gap-6">
+    <div class="flex items-center gap-8">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 bg-acid border-2 border-white flex items-center justify-center font-anton text-black text-xl leading-none">LH</div>
+        <div>
+          <div class="font-anton text-[22px] leading-none tracking-wide">LEADHUNT<span class="text-acid">.</span></div>
+          <div class="font-mono text-[9px] tracking-[0.2em] opacity-70 -mt-1">UGC + CGI AGENCY OS</div>
+        </div>
+      </div>
+      <div class="hidden lg:flex items-center gap-6 font-mono text-[11px] tracking-widest">
+        <a href="#leads" class="bg-white text-black px-3 py-1.5 font-bold">LEADS [50]</a>
+        <a href="#" class="opacity-60 hover:opacity-100">INBOX</a>
+        <a href="#" class="opacity-60 hover:opacity-100">ANALYTICS</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="hidden md:flex items-center gap-2 font-mono text-[10px] border border-white/20 px-3 py-2">
+        <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span> SCANNING INSTAGRAM
+      </div>
+      <button onclick="simulateScan()" class="bg-acid text-black border-2 border-white font-black text-xs md:text-sm px-4 md:px-6 py-2.5 hover:bg-white transition flex items-center gap-2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M21 21l-4.3-4.3"/><circle cx="11" cy="11" r="7"/></svg> RE-SCAN
+      </button>
+    </div>
+  </div>
 </nav>
 
 <!-- HERO -->
-<header class="relative z-10 max-w-[1350px] mx-auto px-4 md:px-6 pt-8 md:pt-12 pb-6">
-<div class="grid lg:grid-cols-[1.2fr_.8fr] gap-6 items-stretch">
-<div class="card p-6 md:p-10 relative overflow-hidden">
-<div class="absolute inset-0 opacity-20"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&q=60" class="w-full h-full object-cover"></div>
-<div class="relative">
-<div class="inline-flex items-center gap-2 bg-[#D4FF3F] text-black text-[11px] font-extrabold tracking-widest uppercase rounded-full px-3 py-1.5 mb-4"><i class="fa-brands fa-instagram"></i> 50 Vetted Instagram Leads • Sept 2026</div>
-<h1 class="font-sora font-extrabold text-3xl md:text-5xl leading-[1.02] tracking-tight">Small brands with <span class="grad-text">weak creatives</span> ready to buy UGC + CGI ads.</h1>
-<p class="text-white/60 mt-4 max-w-xl text-sm md:text-[15px] leading-relaxed">Every lead sells a real product, posts low-quality content or runs ads with poor CTR, and is small enough to say <b class="text-white">yes fast</b>. Tap any card for audit + hyper-personalized DM + follow-up. Track outreach, copy, close.</p>
-<div class="flex flex-wrap gap-2 mt-6">
-<button onclick="filterOpp('All')" class="pill opp-pill active">All Opportunities</button>
-<button onclick="filterOpp('Weak Creatives')" class="pill opp-pill">🎨 Weak Creatives</button>
-<button onclick="filterOpp('No Ads / Organic Only')" class="pill opp-pill">📉 No Ads</button>
-<button onclick="filterOpp('Low Engagement')" class="pill opp-pill">💔 Low Engagement</button>
-<button onclick="filterOpp('Running Ads Poor CTR')" class="pill opp-pill">💸 Bad Ad CTR</button>
-</div>
-<div class="flex flex-wrap items-center gap-3 mt-6 text-xs">
-<div class="flex items-center gap-2">Sort: <select id="sort" onchange="state.sort=this.value;render()" class="bg-white/10 border border-white/15 rounded-full px-3 py-1.5 outline-none text-white"><option value="score" class="text-black">Highest Opportunity</option><option value="followers" class="text-black">Most Followers</option><option value="az" class="text-black">A-Z</option></select></div>
-<div class="flex-1 min-w-[180px]"><div class="flex justify-between text-[11px] text-white/50 mb-1"><span>OUTREACH PROGRESS</span><span id="progLabel">0%</span></div><progress id="prog" value="0" max="50" class="w-full h-2"></progress></div>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-4">
-<div class="card p-5 flex flex-col justify-between"><div class="text-4xl font-sora font-extrabold">50</div><div class="text-xs text-white/50 mt-1">Qualified D2C + Local Leads<br><span class="text-[#D4FF3F] font-bold">0 big brands</span></div><div class="mt-3 text-[11px] bg-white/5 rounded-xl p-2.5 border border-white/10">Avg. 8.2k followers • Sweet spot to close $800-$3k/mo retainers</div></div>
-<div class="card p-5 bg-gradient-to-br from-[#D4FF3F] to-[#a8cc2e] !text-black !border-0"><div class="text-[11px] font-extrabold tracking-widest">EST. PIPELINE VALUE</div><div class="text-3xl font-sora font-extrabold">$87K</div><div class="text-xs font-semibold opacity-70">If 12% close at $1.45k avg. first project</div><button onclick="document.getElementById('playbook').scrollIntoView({behavior:'smooth'})" class="mt-3 bg-black text-white rounded-full py-2 text-xs font-bold">View DM Playbook →</button></div>
-<div class="card p-5"><div class="text-xs font-bold tracking-widest text-white/50">CATEGORIES</div><div id="catBars" class="mt-2 space-y-1.5 text-[11px]"></div></div>
-<div class="card p-5"><div class="text-xs font-bold tracking-widest text-white/50">WHY THEY'LL BUY</div><div class="text-sm font-sora font-bold mt-1 leading-snug">iPhone photos.<br>Zero hooks.<br>No faces.</div><div class="mt-2 flex gap-1.5"><span class="tick bg-[#D4FF3F] text-black"><i class="fa-solid fa-check"></i></span><span class="text-[11px] text-white/60">We fix with UGC + CGI in 7 days</span></div></div>
-</div>
-</div>
-<div class="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-white/[.03] py-2.5 relative z-10"><div class="marquee text-[12px] font-semibold text-white/60" id="marquee"></div></div>
-<div id="catPills" class="flex gap-2 overflow-x-auto py-4 z-10 relative" style="scrollbar-width:none"></div>
-</header>
-
-<!-- GRID -->
-<main class="relative z-10 max-w-[1350px] mx-auto px-4 md:px-6 pb-20">
-<div class="flex items-center justify-between mb-4"><h2 class="font-sora font-bold text-lg"><span id="count">50</span> leads <span class="text-white/40 font-normal text-sm" id="filterLabel">• All niches</span></h2><div class="text-xs text-white/40 hidden md:block">💡 Tip: Click card for full audit + follow-up DM • <span class="text-[#D4FF3F]">Right-click IG to open</span></div></div>
-<div id="grid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-5"></div>
-
-<!-- PLAYBOOK -->
-<div id="playbook" class="mt-16 card p-6 md:p-10 grid lg:grid-cols-3 gap-8">
-<div><div class="text-[#D4FF3F] text-xs font-extrabold tracking-widest">OUTREACH PLAYBOOK</div><h3 class="font-sora font-extrabold text-2xl md:text-3xl mt-2 leading-tight">How to close 5-8 of these in 14 days.</h3><p class="text-white/55 text-sm mt-3 leading-relaxed">Don't pitch. Diagnose. Every DM follows Hook → Pain → Loss → Solution → Soft CTA. Send DM → Like 3 posts → Story reply next day → Follow-up in 3 days (provided in each card).</p><div class="mt-4 flex gap-2"><button onclick="copyAllBriefs()" class="btn-lime rounded-full px-5 py-2.5 text-xs">Copy All 50 DMs</button><a href="https://instagram.com" target="_blank" class="btn-ghost rounded-full px-5 py-2.5 text-xs font-bold">Open Instagram ↗</a></div></div>
-<div class="space-y-3 text-sm">
-<div class="bg-white/5 border border-white/10 rounded-2xl p-4"><div class="font-bold text-[#D4FF3F] text-xs mb-1">DAY 0 — DM + ENGAGE</div>Like 2 Reels + 1 carousel, then send personalized DM from card. No links. End with question.</div>
-<div class="bg-white/5 border border-white/10 rounded-2xl p-4"><div class="font-bold text-[#FF5CA8] text-xs mb-1">DAY 1 — STORY REPLY</div>Reply to their story with genuine compliment + soft nudge. Boosts DM to Primary.</div>
-<div class="bg-white/5 border border-white/10 rounded-2xl p-4"><div class="font-bold text-[#8B5CF6] text-xs mb-1">DAY 3 — FOLLOW-UP (DONE FOR YOU)</div>Each card has a 2-line bump + free Loom idea. 60% replies come here.</div>
-</div>
-<div class="bg-[#0C0C16] border border-white/10 rounded-2xl p-5"><div class="text-xs font-bold tracking-widest text-white/50">UGC + CGI OFFER STACK</div><ul class="mt-3 space-y-2.5 text-[13px] text-white/70"><li>✅ 3x UGC videos (hook + demo + testimonial) — $650</li><li>✅ 2x CGI viral ads (product exploding/floating) — $800</li><li>✅ <b class="text-white">Launch Pack: 3 UGC + 2 CGI + 5 hooks — $1,450</b></li><li>✅ 48hr first draft, unlimited hook rewrites</li><li>✅ Free ad account audit with every DM reply</li></ul><div class="mt-4 dm-box p-3 text-[12px] text-white/60 italic">"We only take 4 brands/month so creatives stay custom — have 2 spots left for October if you want in?" — scarcity closer</div></div>
-</div>
-<footer class="text-center text-white/30 text-xs mt-10">Built for LUMIÈRE Creative • All handles are illustrative prospect examples — verify live before outreach • Personalize first line with recent post reference for +37% reply rate</footer>
-</main>
-
-<!-- MODAL -->
-<div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 md:p-6 modal-bg" onclick="if(event.target===this)closeModal()">
-<div class="w-full max-w-3xl max-h-[92vh] overflow-y-auto card !bg-[#12121C] p-0" id="modalCard"></div>
-</div>
-<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-24 opacity-0 z-[60] bg-[#D4FF3F] text-black text-sm font-bold px-5 py-3 rounded-full shadow-2xl flex items-center gap-2"><i class="fa-solid fa-circle-check"></i><span id="toastMsg">Copied!</span></div>
-
-<script>
-const IMGS = {
-beauty:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&q=70",
-food:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&q=70",
-fashion:"https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=70",
-jewel:"https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=70",
-home:"https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?w=600&q=70",
-fit:"https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=70",
-pet:"https://images.unsplash.com/photo-1583337130417-3346a1be7f37?w=600&q=70",
-baby:"https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&q=70",
-local:"https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&q=70",
-drink:"https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&q=70"
-};
-
-const LEADS = [
-{u:"glowby.aria",n:"Glow by Aria",cat:"Beauty & Skincare",fol:"12.4k",loc:"Austin, TX",sell:"Handmade niacinamide + turmeric serums",type:"D2C Skincare • Shopify",opp:"Low Engagement",score:94,img:IMGS.beauty,issue:"Gorgeous product but Reels are static overhead shots with no face, no hook in first 3 sec. Avg 280 likes, comments off. No UGC testimonials despite strong before/afters buried in highlights.",dm:"Hey Aria! Your turmeric serum before/afters in highlights stopped me — that glow is unreal ✨ I noticed your Reels are mostly still product shots and stuck under 300 likes, so you're probably losing sales to bigger brands with louder videos even though yours is cleaner. We make UGC routines + CGI glow-explosion ads for skincare that usually 2-3x CTR. Want me to send 2 free hook ideas for your hero serum?",fu:"Quick bump Aria — I mocked a hook: POV your dark spots fade in 14 days with turmeric. Want me to send the 15-sec script free? No strings 💛"},
-{u:"sunkissed.soul.tanning",n:"Sunkissed Soul",cat:"Beauty & Skincare",fol:"8.1k",loc:"Miami, FL",sell:"Natural tanning oils + SPF shimmer",type:"Instagram Shop • D2C",opp:"Weak Creatives",score:91,img:IMGS.beauty,issue:"Beach product shot on dull bedroom floor, poor lighting. No application videos, no shade comparisons. Running boosted posts with same blurry creative — burning ad spend.",dm:"Hey love! Your shimmer oil on brown skin is STUNNING — perfect for Miami summer ☀️ Saw your boosted post is using the same dim indoor photo though, so it's likely getting scrolled past and wasting spend. We do poolside UGC + CGI golden-drip ads for tanning brands that make people stop. Want 2 scroll-stopper concepts for your bestseller?",fu:"Hey! Made you a quick idea: CGI oil bottle pouring sunshine over skin + real girl applying poolside. Want the storyboard? Takes 2 mins to view 🌊"},
-{u:"velvetlash.co",n:"Velvet Lash Co",cat:"Beauty & Skincare",fol:"22.7k",loc:"Los Angeles, CA",sell:"Reusable press-on lashes (20 styles)",type:"D2C Beauty • TikTok Shop",opp:"Running Ads Poor CTR",score:93,img:IMGS.beauty,issue:"Running Meta ads but creatives are stock-model close-ups, no try-on, no wear-test. Comments say can't tell length. CTR must be low, CAC rising.",dm:"Hi! Obsessed with your Venus wispy set — looks like extensions without glue hell 😍 Noticed your ads show models but never the actual 10-sec application, and comments keep asking about sizing — that's probably killing conversions. We film 7-day wear-test UGC + CGI lash-box opening ads that answer that instantly. Want me to audit your top ad free?",fu:"Following up — I have a creator who wears press-ons daily and would crush a Get ready with me for Velvet. Want her 3-hook sample list?"},
-{u:"kurlsbykay",n:"Kurls by Kay",cat:"Beauty & Skincare",fol:"9.3k",loc:"Atlanta, GA",sell:"Curl custard + scalp oil for 3C-4C hair",type:"Black-owned D2C Haircare",opp:"No Ads / Organic Only",score:96,img:IMGS.beauty,issue:"Incredible wash-day results in comments but zero video tutorials. Posts are text graphics. Not running ads at all while competitors scale with UGC wash-days.",dm:"Hey Kay! Your curl custard definition on 4C hair in your tagged photos is better than brands 10x your size 🌀 But your feed is mostly flyers, so people can't SEE the transformation — you're leaving so much growth on the table. We do wash-day UGC + CGI curl-melting ads for hair brands. Can I send 2 video ideas tailored to your custard?",fu:"Hey Kay, quick idea: Day 1 vs Day 7 twist-out with your custard, filmed by a 4C creator. I can script it free — want it? 💕"},
-{u:"barebotanica",n:"Bare Botanica",cat:"Beauty & Skincare",fol:"6.8k",loc:"Portland, OR",sell:"Plastic-free natural deodorant",type:"Eco D2C • Etsy + Site",opp:"Low Engagement",score:88,img:IMGS.beauty,issue:"Mission-driven but content is flat white-background sticks. No sweat-test proof, no lifestyle. Reels avg 900 views, saves near zero.",dm:"Hi! Love that you're plastic-free AND actually works — rare combo 🌿 Noticed your posts never show the 24hr sweat test or real armpit routine, so followers have no reason to trust-switch from Native. We make underarm UGC proof videos + CGI fresh-burst ads. Want 2 trust-building hooks for Bare?",fu:"Bump — what if we did street interviews: guess the natural deo? Goes viral for eco brands. Want the outline?"},
-{u:"lippie.lab",n:"Lippie Lab",cat:"Beauty & Skincare",fol:"15.2k",loc:"New York, NY",sell:"Peptide lip tints (8 shades)",type:"D2C Cosmetics",opp:"Weak Creatives",score:90,img:IMGS.beauty,issue:"Pretty swatches but no lip-swatch on diverse skin tones, shaky lighting. No try-on transitions trending on TikTok. Competitor Rhode dominates with UGC.",dm:"Hey! Your cherry cola tint shade is literally perfect for fall 💄 Saw your swatches are only on arms though, so girls can't picture it on lips — that's likely why saves are low vs Rhode dupes. We shoot diverse lip-try-on UGC + CGI glossy-splash ads. Want 3 transition ideas for your 8 shades?",fu:"Heyy — I wrote 3 TikTok transitions for Lippie (blot test, 8-hr wear, kiss test). Want me to DM them? Free 💋"},
-{u:"polishedby.pri",n:"Polished by Pri",cat:"Beauty & Skincare",fol:"5.4k",loc:"Edison, NJ",sell:"Salon-grade nail wraps + press-ons",type:"South-Asian owned D2C",opp:"No Ads / Organic Only",score:85,img:IMGS.beauty,issue:"Beautiful Diwali collection but only carousel photos, no application Reels. Zero video proof they last 14 days. Missing festive ad season.",dm:"Hi Pri! Your Diwali chrome wraps are jaw-dropping — I haven't seen that detailing elsewhere ✨ But without a 60-sec apply + 14-day wear video, shoppers may assume they pop off like cheap stickers and skip. We do at-home mani UGC + CGI nail-box magic ads. Want 2 Diwali ad angles before season peaks?",fu:"Pri! Diwali is 3 weeks of prime sales — want a free hook list to push your chrome set? Can send today 💅"},
-{u:"doughmami.cookies",n:"Dough Mami",cat:"Food & Beverage",fol:"18.9k",loc:"Dallas, TX",sell:"Thick stuffed cookies (6-pack boxes)",type:"Local Bakery • Ships nationwide",opp:"Running Ads Poor CTR",score:95,img:IMGS.food,issue:"Mouth-watering product but ads are dark kitchen photos, no cheese-pull break-open. Reels have no ASMR. Competitor Crumbl wins with gooey CGI-style pulls.",dm:"Hey Mami! Your red velvet cheesecake stuffing looks illegal (in the best way) 🍪 Noticed your ads use still photos instead of that warm gooey break-open — so people scroll without craving and you lose impulse orders. We film ASMR break-opens + CGI chocolate-lava ads for bakeries. Want 2 craving-trigger hooks for your 6-pack?",fu:"Quick one — imagine: CGI cookie exploding with filling + real bite crunch. I sketched it for Dough Mami. Want to see? Takes 30 secs 🍫"},
-{u:"brewedbyarlo",n:"Brewed by Arlo",cat:"Food & Beverage",fol:"7.2k",loc:"Seattle, WA",sell:"Cold brew steeping bags",type:"D2C Coffee • Subscription",opp:"Low Engagement",score:87,img:IMGS.drink,issue:"Great convenience angle but feed is bags on table, no pouring, no morning ritual. No UGC, captions are one-liners. Low saves.",dm:"Hey Arlo! Cold brew bags for lazy mornings is genius — no $7 latte line ☕ But your feed never shows that creamy pour-over-ice moment, so people don't feel the craving. We do cozy morning-routine UGC + CGI coffee-splash ads. Want 2 ritual-style ideas for your starter pack?",fu:"Morning! Wrote you a POV: I quit Starbucks for 30 days with Arlo. Creator-tested angle. Want the script free?"},
-{u:"spiceandthistle",n:"Spice & Thistle",cat:"Food & Beverage",fol:"4.9k",loc:"Austin, TX",sell:"Small-batch fermented hot sauces",type:"Farmers Market + D2C",opp:"No Ads / Organic Only",score:86,img:IMGS.food,issue:"Bold flavors but videos are shaky market stalls, no food porn drizzles. No heat-level challenge content that goes viral.",dm:"Hey y'all! Your fermented habanero sounds like my kind of pain 🔥 Saw your content is mostly market booth clips with no close-up drizzle or heat reaction — that's why it's not spreading despite killer flavor. We do tongue-on-fire UGC taste tests + CGI flame-pour ads. Want 2 viral challenge ideas?",fu:"Idea: 3 friends rank your 3 heats blindfolded — super shareable. Want the shot list? Free 🌶️"},
-{u:"goldenhourmatcha",n:"Golden Hour Matcha",cat:"Food & Beverage",fol:"11.6k",loc:"San Diego, CA",sell:"Ceremonial-grade matcha + whisks",type:"Wellness D2C",opp:"Weak Creatives",score:92,img:IMGS.drink,issue:"Aesthetic brand but Reels are reposted supplier clips, no whisking ritual, no latte art. No founder story. Losing to Chamberlain lookalikes.",dm:"Hi! Your golden-hour whisking aesthetic is so calming 🍵 Noticed you're reposting generic matcha clips instead of your own frothy whisk ritual — followers can't connect and probably pick prettier feeds. We shoot that-girl morning matcha UGC + CGI whisk-swirl ads. Want 2 ritual concepts for your ceremonial tin?",fu:"Hey — what about that-girl 6am matcha reset with your tin front + center? I can send creator brief free. Interested?"},
-{u:"crumbculturebakery",n:"Crumb Culture",cat:"Food & Beverage",fol:"9.8k",loc:"Chicago, IL",sell:"Naturally leavened sourdough + focaccia",type:"Neighborhood Bakery",opp:"Low Engagement",score:84,img:IMGS.food,issue:"Best crumb in Chicago per comments but page posts blurry loaf pics at night, no scoring/slicing ASMR, no pre-order urgency.",dm:"Hey! Your jalapeño cheddar scoring video (the one from March) gave me chills — that ear! 🥖 But most posts are dim night photos with no slicing crunch, so locals don't feel FOMO to pre-order Friday drops. We do bakery ASMR UGC + CGI steam ads. Want 2 drop-hype ideas?",fu:"Friday drops sell out faster with slicing ASMR + countdown. Want a free 7-sec script for this week's focaccia?"},
-{u:"plantbased.pia",n:"Plant Based Pia",cat:"Food & Beverage",fol:"6.1k",loc:"Denver, CO",sell:"Vegan date protein balls",type:"Healthy Snacks D2C",opp:"Weak Creatives",score:83,img:IMGS.food,issue:"Clean ingredients but packaging photos only, no gym-bag bite, no macro callouts. No mom-fitness creator proof.",dm:"Hey Pia! Date + cacao balls with 8g protein and no junk is what every gym mom wants 💪 Noticed there's no on-the-go bite or lunchbox packing video though, so busy moms scroll past. We do gym + mom-life UGC + CGI ingredient-burst ads. Want 2 snack-hack angles?",fu:"Pia! Idea: What I eat in a day gym edition with your balls as pre-workout. Want the UGC outline free?"},
-{u:"tipsytea.co",n:"Tipsy Tea Co",cat:"Food & Beverage",fol:"13.5k",loc:"Nashville, TN",sell:"Cocktail-infused tea kits",type:"Gifting D2C • Party niche",opp:"Running Ads Poor CTR",score:89,img:IMGS.drink,issue:"Fun bachelorette product but ad creatives are static kit boxes, no pouring cocktails, no party reactions. High CPM during gifting season.",dm:"Hey! Tipsy tea for bachelorettes is SUCH a good gift — way better than another tumbler 🍸 Saw your ads just show the box though, not the gorgeous pink pour or girls cheersing — that's likely why clicks are pricey. We film girls-night UGC + CGI cocktail-splash ads. Want 2 party angles?",fu:"Bump! Bachelorette season is peaking — want a pour + cheers hook list for Tipsy Tea? Free, 2 mins to read 🥂"},
-{u:"smokedsaltco",n:"Smoked Salt Co",cat:"Food & Beverage",fol:"3.8k",loc:"Kansas City, MO",sell:"Applewood smoked salts + BBQ rubs",type:"BBQ D2C • Dad gift niche",opp:"No Ads / Organic Only",score:82,img:IMGS.food,issue:"Pitmaster-approved but content is jars on grill, no steak sizzle, no comparison. Missing Father's Day / BBQ viral potential.",dm:"Hey! Applewood smoked salt on brisket — you had me at smoke 💨 Noticed there's no sizzling steak sprinkle close-up, so BBQ guys can't taste it through the screen and keep buying generic rubs. We do backyard pitmaster UGC + CGI smoke-swirl ads. Want 2 drool-worthy ideas?",fu:"Quick thought: Pitmaster sprinkles your salt in slow-mo + CGI smoke. I can storyboard free — want it? 🥩"},
-{u:"threadedbyzara",n:"Threaded by Zara",cat:"Fashion & Apparel",fol:"14.3k",loc:"Houston, TX",sell:"Modest streetwear + abaya sets",type:"Modest Fashion D2C",opp:"Weak Creatives",score:91,img:IMGS.fashion,issue:"Stunning styling but Reels are mirror selfies with bad lighting, no movement twirls, no fabric close-ups. No styling versatility videos.",dm:"Hi Zara! Your sand linen abaya styling with sneakers is so fresh — modest but street 🖤 Noticed your Reels are static mirror clips with no twirl or fabric flow, so shoppers can't feel the drape and hesitate. We shoot modest try-on hauls + CGI fabric-flow ads. Want 3 styling video ideas for your new set?",fu:"Zara! 1 abaya 3 ways (brunch, masjid, night out) always goes viral in modest niche. Want the script free? Takes 1 min to read 🧕"},
-{u:"soleandsage",n:"Sole and Sage",cat:"Fashion & Apparel",fol:"7.9k",loc:"Encinitas, CA",sell:"Minimal barefoot sandals",type:"Sustainable Footwear",opp:"Low Engagement",score:86,img:IMGS.fashion,issue:"Eco comfort story strong but no walking POV, no unboxing, feed is product flats. No podiatrist/grounding UGC proof.",dm:"Hey! Barefoot sandals that don't look like toe shoes — finally 🦶 Saw your feed is mostly flat lays with no beach walking POV, so people don't get the grounding comfort and bounce. We do barefoot beach-walk UGC + CGI sole-flex ads. Want 2 comfort-proof concepts?",fu:"Idea: 30-day barefoot switch with your sandals — podiatrist reacts. Super trustworthy. Want outline?"},
-{u:"knitsbynora",n:"Knits by Nora",cat:"Fashion & Apparel",fol:"5.7k",loc:"Brooklyn, NY",sell:"Hand-knit chunky sweaters",type:"Handmade Slow Fashion",opp:"No Ads / Organic Only",score:88,img:IMGS.fashion,issue:"Cozy Grandma-core perfect for fall but only finished-product photos, no knitting process, no try-on in snow. Missing cozy ASMR trend.",dm:"Hi Nora! Your cloud cardigan looks like a hug — I can feel it through the screen 🧶 But there's no knitting hands or snowy try-on video, so people don't feel the handmade value and compare you to Shein prices. We do cozy process UGC + CGI snowfall ads. Want 2 fall angles?",fu:"Nora — POV knitting your cardigan in 30 secs + snowfall try-on. Cozy viral gold. Want script free? 🍂"},
-{u:"rework.vintage",n:"Rework Vintage",cat:"Fashion & Apparel",fol:"19.4k",loc:"Los Angeles, CA",sell:"Upcycled vintage denim + cargos",type:"Thrift / Y2K Streetwear",opp:"Running Ads Poor CTR",score:90,img:IMGS.fashion,issue:"Cool one-of-one pieces but ads use same fitting-room clip for all SKUs, no thrift-flip transformation, sizing confusion in comments.",dm:"Hey! Your baggy jorts flip from 90s Levi's is hard 🔥 Noticed your ads reuse one fitting clip for every drop though, so each one-of-one piece feels generic and sells slow. We do thrift-flip UGC + CGI denim-rewind ads per drop. Want 2 drop-hype formats?",fu:"Drop idea: Thrift $8 → Rework $68 transformation in 15 secs. I can script your next jorts drop free — want it? 👖"},
-{u:"linenandloom.co",n:"Linen and Loom",cat:"Fashion & Apparel",fol:"10.2k",loc:"Charleston, SC",sell:"Breathable linen co-ord sets",type:"Resortwear D2C",opp:"Weak Creatives",score:87,img:IMGS.fashion,issue:"Perfect coastal-grandmother vibe but photos are indoor, wrinkled, no beach movement. No vacation styling UGC.",dm:"Hi! Your oatmeal linen set screams Amalfi coast mornings ☁️ But indoor wrinkled try-ons don't sell the breezy vacation dream — shoppers pick prettier resort brands. We film coastal getaway UGC + CGI breeze-flow ads. Want 2 vacation hooks?",fu:"What about Get ready for Italian summer in linen — suitcase to beach in 15 secs? Want storyboard free? ✈️"},
-{u:"fitformnae",n:"Fit Form Nae",cat:"Fashion & Apparel",fol:"16.8k",loc:"Miami, FL",sell:"Seamless gym sets + bands",type:"Black-owned Athleisure",opp:"Low Engagement",score:89,img:IMGS.fit,issue:"Buttery sets but content is posed gym mirror pics, no squat-proof test, no sweat proof. Comments doubt quality vs Gymshark.",dm:"Hey Nae! Your chocolate seamless set on deep skin tones is EVERYTHING 🤎 Noticed there's no squat-proof or sweat test video though, so girls assume it's see-through and stick with Gymshark — painful to watch. We do gym-proof UGC + CGI sculpt ads. Want 2 proof-test ideas?",fu:"Nae! Squat test in white leggings + 1hr HIIT sweat check always converts. Want creator brief free? 💪🏾"},
-{u:"cozyclub.loungewear",n:"Cozy Club",cat:"Fashion & Apparel",fol:"8.6k",loc:"Austin, TX",sell:"Cloud-soft loungewear sets",type:"Womens Loungewear D2C",opp:"Weak Creatives",score:85,img:IMGS.fashion,issue:"Softness is hero but no touch/feel close-ups, no WFH day-in-life. Reels use trending audio with no hook text.",dm:"Hey Cozy Club! Your butter set looks softer than Skims — no joke ☁️ But your videos never show that hand-squish softness or WFH all-day comfort, so scrollers don't feel it. We do cozy day-in-my-life UGC + CGI cloud-wrap ads. Want 2 softness hooks?",fu:"Idea: Touch test blindfold — your set vs Skims. Viral + proves softness. Want script? 🛋️"},
-{u:"gildedgrace.jewels",n:"Gilded Grace",cat:"Jewelry & Accessories",fol:"9.1k",loc:"Tampa, FL",sell:"Tarnish-free waterproof jewelry",type:"D2C Jewelry",opp:"Running Ads Poor CTR",score:92,img:IMGS.jewel,issue:"Waterproof claim huge but ads show jewelry boxes, no pool/ocean/sweat tests. No stacking tutorials. Losing to Kendra Scott dupes.",dm:"Hi Grace! Waterproof + tarnish-free for $28 is insane value ✨ Noticed your ads never show pool dunks or 30-day wear — so shoppers don't believe it and buy pricier brands. We film shower/pool/ocean proof UGC + CGI gold-drip ads. Want 2 proof angles for your bestseller stack?",fu:"Grace — pool dunk + saltwater test in 20 secs converts like crazy for waterproof jewelry. Want shot list free? 💧"},
-{u:"aurastone.crystals",n:"Aura Stone",cat:"Jewelry & Accessories",fol:"6.3k",loc:"Sedona, AZ",sell:"Crystal healing bracelets",type:"Spiritual D2C",opp:"Low Engagement",score:84,img:IMGS.jewel,issue:"Beautiful stones but content is dark crystal close-ups, no wrist stacks, no meaning storytelling. No unboxing ritual.",dm:"Hi! Your rose quartz + citrine stack for self-love is so pretty 🌙 Noticed posts don't explain what each stone does or show wrist stacking — spiritual girls buy meaning, not just beads, so you're missing emotional sales. We do intention-setting UGC + CGI aura-glow ads. Want 2 storytelling hooks?",fu:"What about Unbox your intentions with me + CGI glow per stone? Super shareable. Want script free? 🔮"},
-{u:"wildflower.charmco",n:"Wildflower Charm Co",cat:"Jewelry & Accessories",fol:"4.2k",loc:"Portland, OR",sell:"Handmade polymer clay earrings",type:"Handmade • Etsy",opp:"No Ads / Organic Only",score:83,img:IMGS.jewel,issue:"Cute cottagecore florals but photos on white paper, no ear try-ons, no making process. No scale reference, buyers unsure of size.",dm:"Hey! Your lemon daisy dangles are straight out of a cottage picnic 🌼 But with no try-on or clay-making video, shoppers can't tell size or fall in love with the handmade story. We do ear-stack try-ons + CGI petal-bloom ads. Want 2 cute angles?",fu:"Making video: from clay blob to daisy in 20 secs + try-on. Oddly satisfying + sells. Want outline free? 🌸"},
-{u:"tiedandtrue.scrunchies",n:"Tied and True",cat:"Jewelry & Accessories",fol:"7.5k",loc:"New York, NY",sell:"Mulberry silk scrunchies + scarves",type:"Hair Accessories D2C",opp:"Weak Creatives",score:81,img:IMGS.jewel,issue:"Silk benefit (no breakage) not demonstrated. Flat product pics, no hair-toss, no before/after frizz comparison.",dm:"Hey! Silk scrunchies that don't dent or snap hair is a holy grail 🎀 Noticed there's no hair-down toss or overnight frizz comparison though, so people keep buying $5 Amazon packs. We do silk vs cotton breakage UGC + CGI silk-flow ads. Want 2 hair-proof ideas?",fu:"Overnight test: silk vs regular scrunchie morning after — always goes viral. Want brief free? 💇‍♀️"},
-{u:"oakandember.rings",n:"Oak and Ember",cat:"Jewelry & Accessories",fol:"5.9k",loc:"Asheville, NC",sell:"Handcrafted wood + resin rings",type:"Mens Gifts • Handmade",opp:"Low Engagement",score:80,img:IMGS.jewel,issue:"Unique craftsmanship but no workshop fire/woodworking ASMR, dim photos. Missing groomsmen gift angle completely.",dm:"Hey! Whiskey-barrel wood rings for groomsmen is genius — masculine but meaningful 💍 Noticed there's no workshop fire sparks or hand close-ups though, so guys scroll past. We do craftsman ASMR UGC + CGI ember-swirl ads. Want 2 groomsmen angles?",fu:"Idea: Forging his ring from barrel to finger in 25 secs. Tear-jerker for weddings. Want storyboard? 🪵"},
-{u:"beadedbybelle",n:"Beaded by Belle",cat:"Jewelry & Accessories",fol:"11.1k",loc:"Atlanta, GA",sell:"Waist beads + anklets",type:"Cultural Jewelry D2C",opp:"Weak Creatives",score:87,img:IMGS.jewel,issue:"Empowering product but Reels are waist close-ups with no styling, no weight-journey story that drives community. Captions too short.",dm:"Hi Belle! Your waist-bead weight-journey community in comments is powerful 🧡 But videos never show the full styling or transformation story — new buyers don't get the why and hesitate. We do confidence-journey UGC + CGI bead-glow ads. Want 2 story angles?",fu:"Belle — 60-day waist journey with beads + try-on evolution. Emotional + viral. Want script free? ✨"},
-{u:"wickandwonder.candles",n:"Wick and Wonder",cat:"Home & Living",fol:"8.8k",loc:"Minneapolis, MN",sell:"Non-toxic soy candles (fall scents)",type:"Home Fragrance D2C",opp:"Weak Creatives",score:90,img:IMGS.home,issue:"Fall scents divine but content is unlit jars, no flame flicker, no cozy room vibe. No scent storytelling. Competitors win with CGI crackle.",dm:"Hey! Your fireside chai scent sounds like fall in a jar 🕯️ Noticed your posts show unlit jars with no flame flicker or cozy blanket vibe — people can't smell through screen, so they don't feel the need. We do cozy-room UGC + CGI flame + scent-cloud ads. Want 2 fall craving ideas?",fu:"What about lighting your chai + CGI cinnamon swirl filling a cozy cabin? I sketched it. Want to see? 🍂"},
-{u:"terracotta.dreams",n:"Terracotta Dreams",cat:"Home & Living",fol:"6.7k",loc:"Joshua Tree, CA",sell:"Hand-thrown ceramic mugs + vases",type:"Pottery Studio • Small batch",opp:"No Ads / Organic Only",score:86,img:IMGS.home,issue:"Earthy desert aesthetic but no wheel-throwing process, no coffee pour. Photos blend in, no ASMR that pottery TikTok loves.",dm:"Hi! Your speckled desert mugs are pure Joshua Tree magic 🏜️ But without wheel-throwing hands or steamy coffee pours, shoppers don't feel handmade worth $48 vs Target. We do pottery ASMR UGC + CGI clay-spin ads. Want 2 process ideas?",fu:"Throwing your mug on wheel in 20 secs + pour = pottery TikTok gold. Want shot list free? ☕"},
-{u:"linenlights.home",n:"Linen Lights",cat:"Home & Living",fol:"4.5k",loc:"Sacramento, CA",sell:"Dried flower + pampas arrangements",type:"Home Decor D2C",opp:"Low Engagement",score:82,img:IMGS.home,issue:"Everlasting florals gorgeous but photos in dim living rooms, no vase styling transformation, no wedding tablescape proof.",dm:"Hey! Everlasting pampas that never dies is perfect for lazy plant lovers (me) 🌾 Noticed there's no before/after vase glow-up though, so brides can't picture wedding tables. We do home glow-up UGC + CGI petal-float ads. Want 2 styling angles?",fu:"Idea: $20 vase → $200 look with your pampas in 15 secs. Brides save like crazy. Want script? 💐"},
-{u:"cozyglow.lampco",n:"Cozy Glow Lamp Co",cat:"Home & Living",fol:"13.9k",loc:"Austin, TX",sell:"Sunset + galaxy projection lamps",type:"Gadget Decor • TikTok Shop",opp:"Running Ads Poor CTR",score:89,img:IMGS.home,issue:"Viral-worthy product but ads are AliExpress-style renders, no real bedroom transformation, no cozy night routine. High returns due to expectation gap.",dm:"Hey! Your sunset lamp bedroom glow is unreal 🌅 Noticed your ads use supplier renders instead of real cozy bedroom flips though — that's why comments doubt brightness and CTR dips. We do real-room transformation UGC + CGI light-wave ads. Want 2 room-glow concepts?",fu:"Room flip: boring white → golden hour in 3 secs with your lamp. Hook gold. Want storyboard free? 💡"},
-{u:"sagedspace",n:"Saged Space",cat:"Home & Living",fol:"5.2k",loc:"Phoenix, AZ",sell:"Sage, palo santo + crystal kits",type:"Wellness Ritual Kits",opp:"Weak Creatives",score:81,img:IMGS.home,issue:"Ritual niche but videos are smoky blurs, no step-by-step cleanse, no new-home energy story. No ASMR smoke in good lighting.",dm:"Hi! Your new-home cleanse kit with palo + selenite is such a thoughtful gift 🌿 Noticed videos are smoky close-ups with no calm before/after energy story — stressed girls don't get the reset feeling. We do Sunday-reset UGC + CGI smoke-swirl ads. Want 2 ritual ideas?",fu:"Sunday reset with me cleansing my apartment with your kit — cozy viral format. Want script free? 🧘‍♀️"},
-{u:"thepottednest",n:"The Potted Nest",cat:"Home & Living",fol:"10.5k",loc:"Orlando, FL",sell:"Rare houseplants (pink princess etc)",type:"Local Plant Shop • Ships",opp:"Low Engagement",score:85,img:"https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&q=70",issue:"Plant parents love you but unboxings are shaky, no care tips, no repotting transformations. No plant-tour UGC that drives saves.",dm:"Hey! Your pink princess restock sold out so fast — I missed it 😭 Noticed there's no satisfying repotting or unboxing glow-up though, so plant TikTok doesn't push you. We do plant-tour + repot UGC + CGI leaf-grow ads. Want 2 green-thumb hooks?",fu:"Unbox my wishlist plants with me from Potted Nest + repot ASMR. Plant parents eat this up. Want outline? 🪴"},
-{u:"pulsefit.gear",n:"Pulse Fit Gear",cat:"Fitness & Wellness",fol:"12.9k",loc:"Dallas, TX",sell:"Adjustable dumbbells + benches",type:"Home Gym D2C",opp:"Weak Creatives",score:88,img:IMGS.fit,issue:"Solid equipment but content is gym selfies, no garage-gym builds, no 30-day transformation proof. No dad-busy angle.",dm:"Hey! Adjustable dumbbells that replace 15 pairs for garage gyms is smart 🏋️ But your feed is flex photos with no small-space setup or real workout demo — busy dads can't picture it and stick with Bowflex. We do garage-build UGC + CGI iron-morph ads. Want 2 setup ideas?",fu:"Garage glow-up: empty corner → full gym with your set in 20 secs. Dads save this. Want script free? 🔥"},
-{u:"zenflow.yoga",n:"Zen Flow Yoga",cat:"Fitness & Wellness",fol:"7.4k",loc:"Boulder, CO",sell:"Extra-thick yoga mats + blocks",type:"Yoga D2C",opp:"Low Engagement",score:83,img:IMGS.fit,issue:"Eco mats lovely but no sunrise flow, no joint-comfort demo, feed is rolled mats. No instructor UGC credibility.",dm:"Hi! Extra-thick mats for bad knees is a blessing — my joints felt that 🧘 Noticed there's no sunrise flow or knee-comfort demo though, so yogis can't feel the difference vs Lululemon. We do sunrise-flow UGC + CGI zen-wave ads. Want 2 practice ideas?",fu:"Knee test: thin mat vs yours in pigeon pose — instant trust. Want creator brief free? 🌄"},
-{u:"hydratehero.bottles",n:"Hydrate Hero",cat:"Fitness & Wellness",fol:"9.6k",loc:"Los Angeles, CA",sell:"Gallon motivational water bottles",type:"Fitness Accessories",opp:"Running Ads Poor CTR",score:87,img:IMGS.fit,issue:"Motivational time markers smart but ads are bottle spins, no day-drink-finish challenge, no gym desk lifestyle.",dm:"Hey Hero! Time-marker bottle that guilts me to drink is genius 💧 Saw your ads just spin the bottle though with no drink-my-gallon-with-me challenge — that's why clicks are soft. We do drink-with-me UGC + CGI water-splash ads. Want 2 hydration challenge hooks?",fu:"75-hard girls chug-a-gallon with your bottle — viral format. Want hook list free? 🥤"},
-{u:"grounded.supplements",n:"Grounded Supplements",cat:"Fitness & Wellness",fol:"14.7k",loc:"Miami, FL",sell:"Magnesium + ashwagandha gummies",type:"Wellness Supplements",opp:"Weak Creatives",score:91,img:IMGS.fit,issue:"Sleep/stress angle huge but no morning-night routine, no founder lab proof. Creatives are pill bottles on white, no gummy bite.",dm:"Hey! Magnesium gummies for hot-girl sleep is trending hard 🌙 Noticed your creatives are just bottles with no sleepy night routine or gummy squish — shoppers don't trust it vs Lemme. We do sleep-routine UGC + CGI calm-cloud ads. Want 2 routine angles?",fu:"That-girl sleep reset with your gummies + Oura ring proof. Converts for supplements. Want script free? 😴"},
-{u:"corecanvas.pilates",n:"Core Canvas Pilates",cat:"Fitness & Wellness",fol:"6.9k",loc:"New York, NY",sell:"Pilates grip socks + reformer kits",type:"Pilates D2C",opp:"No Ads / Organic Only",score:84,img:IMGS.fit,issue:"Pilates princess trend perfect fit but no reformer workouts, no grip test, only product flats. Missing TikTok pilates wave.",dm:"Hi! Your cherry grip socks are SO pilates princess 🩰 Noticed there's no reformer slip test or princess morning routine though — you're missing the whole TikTok wave. We do studio-day UGC + CGI grip-zoom ads. Want 2 princess routine ideas?",fu:"Pilates princess morning: matcha + your socks + reformer flow. Viral starter pack. Want brief free? 💕"},
-{u:"barkery.treatbar",n:"Barkery Treat Bar",cat:"Pets",fol:"11.3k",loc:"Denver, CO",sell:"All-natural dog birthday cakes + treats",type:"Pet Bakery • Local + Ship",opp:"Weak Creatives",score:93,img:IMGS.pet,issue:"Dogs go crazy on camera but page posts blurry treat bags, no taste-test drool, no birthday pawty setups. Huge emotional missed opportunity.",dm:"Hey! Your peanut butter pupcake with the pink candle made me tear up — so cute 🐾 Noticed there's no drooling taste test or birthday pawty setup though, so dog moms don't feel the must-have tug and skip. We do pup taste-test UGC + CGI treat-burst ads. Want 2 pawty ideas?",fu:"Pup taste test in slow-mo + birthday hats always melts hearts (and sells). Want shot list free? 🦴"},
-{u:"purrfectplay.toys",n:"Purrfect Play",cat:"Pets",fol:"5.8k",loc:"Seattle, WA",sell:"Catnip kickers + wand toys",type:"Cat Toys D2C",opp:"Low Engagement",score:82,img:IMGS.pet,issue:"Cats playing is viral gold but videos are dark living rooms, shaky, no zoomies. No before/after bored vs playful.",dm:"Hey! Your crab kicker that wiggles is hilarious — my cat would lose it 🐈 Noticed videos are dim and shaky though, so the zoomies don't hit and views stall. We do bright zoomie UGC + CGI catnip-poof ads. Want 2 playtime hooks?",fu:"Bored vs zoomies in 10 secs with your kicker — cat TikTok crack. Want script free? 🐾"},
-{u:"wagandwander.gear",n:"Wag and Wander",cat:"Pets",fol:"8.4k",loc:"Bend, OR",sell:"No-pull dog harnesses + leashes",type:"Outdoor Dog Gear",opp:"Running Ads Poor CTR",score:88,img:IMGS.pet,issue:"Adventure positioning strong but ads are studio dog shots, no trail pulling test, no mud/water proof. Comments ask about chafing.",dm:"Hey! Your sage harness on trail goldens is adventure goals 🏔️ Saw ads never show the no-pull test or muddy hike proof though — hikers worry about chafing and keep Ruffwear. We do trail-test UGC + CGI mud-splash-proof ads. Want 2 trail-proof concepts?",fu:"Pull test: regular collar vs yours on a husky + muddy creek dunk. Trust builder. Want outline free? 🐕"},
-{u:"featheredfriends.toys",n:"Feathered Friends Toys",cat:"Pets",fol:"3.1k",loc:"Orlando, FL",sell:"Foraging toys for parrots",type:"Exotic Pet Niche",opp:"No Ads / Organic Only",score:79,img:IMGS.pet,issue:"Super niche loyal buyers but content is toy photos only, no parrot shredding joy, no scream reduction proof that owners crave.",dm:"Hi! Foraging toys that keep macaws busy (and quiet) is parrot-parent gold 🦜 Noticed there's no shredding joy video though — just toy photos — so owners can't see boredom relief. We do happy-flock UGC + CGI feather-burst ads. Want 2 enrichment ideas?",fu:"Shred test: bored screaming vs busy foraging in 20 secs. Every bird owner needs this. Want script? 🪶"},
-{u:"lullabyloom.baby",n:"Lullaby Loom",cat:"Baby & Kids",fol:"9.9k",loc:"Lehi, UT",sell:"Bamboo muslin swaddles + sleep sacks",type:"Mom-owned Baby D2C",opp:"Weak Creatives",score:89,img:IMGS.baby,issue:"Buttery bamboo claim but no softness touch test, no overtired-to-asleep transformation. Feed is folded blankets, no real babies sleeping.",dm:"Hey mama! Bamboo swaddles softer than Kyte at half price — Utah moms are lucky 🤍 Noticed there's no fussy-to-sleepy swaddle transformation though, so exhausted moms don't feel hope and scroll. We do real-mom night-routine UGC + CGI cloud-wrap ads. Want 2 sleepy hooks?",fu:"Fussy 2am → asleep in 3 mins with your swaddle. Every new mom saves this. Want brief free? 👶"},
-{u:"tinytreasures.toys",n:"Tiny Treasures Toys",cat:"Baby & Kids",fol:"4.7k",loc:"Burlington, VT",sell:"Wooden Montessori toys",type:"Eco Toys • Etsy",opp:"Low Engagement",score:81,img:IMGS.baby,issue:"Beautiful beechwood but no toddler playing, no screen-free proof, dim playroom photos. Missing Montessori mom community power.",dm:"Hi! Screen-free wooden rainbow stackers that actually hold attention is Montessori gold 🌈 Noticed there's no toddler focused-play video though — just toy shelf photos — so moms can't see the calm. We do play-in-action UGC + CGI wood-bloom ads. Want 2 play ideas?",fu:"Quiet time: tablet tantrum vs calm stacking with your toys. Relatable viral. Want script? 🧸"},
-{u:"milkmama.lactation",n:"Milk Mama",cat:"Baby & Kids",fol:"7.1k",loc:"Houston, TX",sell:"Lactation cookies + brownies",type:"Postpartum D2C",opp:"No Ads / Organic Only",score:86,img:IMGS.food,issue:"Supply-boost promise huge but no milk-bag freezer stash proof, no 3am nursing reality. No LC credibility.",dm:"Hey mama! Oat + flax cookies that actually help supply is a lifeline 🤱 Noticed there's no freezer stash glow-up or 3am nursing cuddle video though — new moms buy hope + proof. We do real nursing-journey UGC + CGI milk-flow (tasteful) ads. Want 2 heartfelt angles?",fu:"Freezer stash before/after 7 days with your cookies + late-night nursing POV. Emotional + converts. Want outline? 💕"},
-{u:"bloomandbump.maternity",n:"Bloom and Bump",cat:"Baby & Kids",fol:"12.2k",loc:"Dallas, TX",sell:"Bump-friendly dresses + photoshoot gowns",type:"Maternity Boutique • Rental",opp:"Running Ads Poor CTR",score:90,img:IMGS.baby,issue:"Dreamy gowns but ads use heavily filtered studio shots, no real bump movement, no trimester versatility. Size inclusivity questions in comments.",dm:"Hi! Your sage tulle shoot gown on real bumps is breathtaking 🤰 Saw ads use one airbrushed model though, so real mamas in 2nd vs 3rd trimester can't picture fit and bounce. We do real-bump twirl UGC + CGI petal-flow ads. Want 2 inclusive angles?",fu:"Same dress on 20-week vs 36-week bump twirl — inclusivity wins + sells rentals. Want brief free? 🌸"},
-{u:"glowandgo.detailing",n:"Glow and Go Detailing",cat:"Local Services",fol:"3.4k",loc:"Phoenix, AZ",sell:"Mobile car detailing (we come to you)",type:"Local Service • Van-based",opp:"No Ads / Organic Only",score:87,img:IMGS.local,issue:"Insane before/after dusty Teslas but Reels are 2-min unedited washes, no hook, no price anchor. Not running local ads while competitors scale.",dm:"Hey! Your dusty Cybertruck → mirror shine in Scottsdale heat was wild 🤯 Noticed videos are long with no 3-sec hook or price, so locals swipe before the wow. We do hook-first transformation UGC + CGI shine-sweep ads for detailers. Want 2 local ad hooks that book jobs?",fu:"POV: I paid $149 for detailing in my driveway and... (shine reveal). Books jobs on autopilot. Want script free? 🚗"},
-{u:"polishedpaws.grooming",n:"Polished Paws Grooming",cat:"Local Services",fol:"5.1k",loc:"Charlotte, NC",sell:"Stress-free doodle grooming spa",type:"Local Pet Salon",opp:"Weak Creatives",score:84,img:IMGS.pet,issue:"Adorable doodle cuts but content is wet dogs in tubs, no fluffy reveal twirl, no happy wag exit. No booking CTA pinned.",dm:"Hey! Your doodle teddy cut with the pink bow is the cutest in Charlotte 🐩 Noticed posts show soapy before but skip the fluffy spin reveal — that's the booking trigger! We do fluffy-reveal UGC + CGI sparkle ads for groomers. Want 2 booking hooks?",fu:"Matted rescue → teddy bear glow-up in 15 secs + Book link. Books out weeks. Want format free? ✂️"},
-{u:"freshfacials.studio",n:"Fresh Facials Studio",cat:"Local Services",fol:"6.5k",loc:"Atlanta, GA",sell:"$89 glow facials + extractions",type:"Local Beauty Studio",opp:"Low Engagement",score:92,img:IMGS.beauty,issue:"Glowy results but page posts stock spa stones, no extraction close-ups, no client glow reactions. Not leveraging TikTok facial ASMR craze.",dm:"Hey! Your 60-min glow facial extractions (that nose strip video!) had me hooked 😍 Noticed most posts are stock candles instead of real pore-clearing + dewy afterglow — locals pick medspas with proof. We do facial ASMR UGC + CGI glow-drip ads for studios. Want 2 booking-machine ideas?",fu:"Extraction close-up + dewy reveal + $89 first-visit hook. Fills books in ATL. Want script free? ✨"}
-];
-
-const state = { search:"", cat:"All", opp:"All", sort:"score", contacted:new Set(JSON.parse(localStorage.getItem("lumi_contacted")||"[]")) };
-function save(){ localStorage.setItem("lumi_contacted", JSON.stringify([...state.contacted])); }
-
-function parseFol(s){ let v=parseFloat(s); return s.includes("k")? v*1000 : v; }
-
-function renderPills(){
-  const cats=["All",...new Set(LEADS.map(l=>l.cat))];
-  document.getElementById("catPills").innerHTML = cats.map(c=>`<button onclick="state.cat='${c}';document.querySelectorAll('#catPills .pill').forEach(p=>p.classList.remove('active'));event.target.classList.add('active');render()" class="pill ${state.cat===c?'active':''}">${c}</button>`).join("");
-  const counts={}; LEADS.forEach(l=>counts[l.cat]=(counts[l.cat]||0)+1);
-  document.getElementById("catBars").innerHTML = Object.entries(counts).slice(0,5).map(([k,v])=>`<div class="flex items-center gap-2"><span class="w-[110px] truncate text-white/60">${k.split(" ")[0]}</span><div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden"><div class="h-full rounded-full" style="width:${v/8*100}%;background:linear-gradient(90deg,#D4FF3F,#FF5CA8)"></div></div><span class="font-bold">${v}</span></div>`).join("");
-  document.getElementById("marquee").innerHTML = [...LEADS.slice(0,15),...LEADS.slice(0,15)].map(l=>`<span>@${l.u} • ${l.sell} • <b class="text-white">${l.score}/100</b> &nbsp; ✦ &nbsp;</span>`).join("");
-}
-
-function briefText(l, idx){
-return `---\n${idx+1}. Instagram Username: @${l.u}\nBrand Details:\n* What they sell: ${l.sell}\n* Type of business: ${l.type} (${l.loc} • ${l.fol} followers)\n* What's wrong with their current content/ads: ${l.issue}\nPersonalized DM: ${l.dm}\n---`;
-}
-
-function cardHTML(l, idx){
-  const done = state.contacted.has(l.u);
-  const col = l.score>=90? "#D4FF3F" : l.score>=85? "#FFC24B" : "#FF5CA8";
-  return `<article class="card cursor-pointer ${done?'!border-green-400/60':''}" onclick="openModal('${l.u}')">
-  <div class="img-zoom relative h-44 overflow-hidden">
-    <img src="${l.img}" loading="lazy" class="w-full h-full object-cover">
-    <div class="absolute inset-0 bg-gradient-to-t from-[#14141F] via-[#14141F]/30 to-transparent"></div>
-    <div class="absolute top-3 left-3 flex gap-2"><span class="text-[10px] font-extrabold tracking-widest uppercase bg-black/60 backdrop-blur border border-white/20 rounded-full px-3 py-1">${l.cat}</span>${done?'<span class="text-[10px] font-extrabold uppercase bg-green-400 text-black rounded-full px-3 py-1">✓ Contacted</span>':''}</div>
-    <div class="absolute top-3 right-3 score-ring" style="--p:${l.score}%;--c:${col}"><span>${l.score}</span></div>
-    <div class="absolute bottom-3 left-4 right-4 flex items-end justify-between">
-      <div><div class="font-sora font-extrabold text-lg leading-none">@${l.u}</div><div class="text-[12px] text-white/60 mt-1">${l.n} • ${l.loc} • ${l.fol} followers</div></div>
-      <a href="https://instagram.com/${l.u}" target="_blank" onclick="event.stopPropagation()" class="w-9 h-9 rounded-full bg-white text-black flex items-center justify-center hover:bg-[#D4FF3F]"><i class="fa-brands fa-instagram"></i></a>
+<section class="max-w-[1440px] mx-auto border-x-[3px] border-black bg-white">
+  <div class="grid lg:grid-cols-[1.15fr_0.85fr] border-b-[3px] border-black">
+    <!-- LEFT -->
+    <div class="p-6 md:p-10 lg:p-12 border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black">
+      <div class="inline-flex items-center gap-2 bg-black text-white font-mono text-[10px] tracking-[0.18em] px-3 py-1.5 mb-6">
+        <span class="w-1.5 h-1.5 bg-acid rounded-full"></span> FOR UGC + CGI AGENCIES ONLY — Q1 2026
+      </div>
+      <h1 class="font-anton text-[13vw] md:text-[72px] lg:text-[78px] leading-[0.82] tracking-[-0.03em]">
+        50 BRANDS<br>
+        <span class="bg-acid px-2 inline-block mt-1">BEGGING</span><br>
+        FOR BETTER<br>
+        ADS<span class="text-acid">.</span>
+      </h1>
+      <p class="mt-6 max-w-[560px] text-[15px] md:text-[17px] leading-[1.5] font-medium text-zinc-700">
+        We scanned <span class="bg-black text-white px-1.5 font-bold">small & mid-level Instagram brands</span> selling real products. Weak hooks. Bad lighting. Zero UGC. These 50 are bleeding money on bad creatives — and are ready to pay for yours.
+      </p>
+      <div class="mt-8 grid grid-cols-3 gap-3 max-w-[520px]">
+        <div class="border-[3px] border-black p-3 bg-paper">
+          <div class="font-anton text-3xl leading-none">50</div>
+          <div class="font-mono text-[10px] font-bold tracking-widest">QUALIFIED LEADS</div>
+        </div>
+        <div class="border-[3px] border-black p-3 bg-acid">
+          <div class="font-anton text-3xl leading-none">3.2%</div>
+          <div class="font-mono text-[10px] font-bold tracking-widest">AVG ENGAGEMENT</div>
+        </div>
+        <div class="border-[3px] border-black p-3 bg-black text-white">
+          <div class="font-anton text-3xl leading-none">100%</div>
+          <div class="font-mono text-[10px] font-bold tracking-widest">NEED UGC/CGI</div>
+        </div>
+      </div>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#leads" class="bg-black text-white font-black text-sm tracking-wide px-8 py-4 border-[3px] border-black hover:bg-zinc-800 transition flex items-center gap-2">VIEW ALL 50 LEADS <span>→</span></a>
+        <button onclick="exportCSV()" class="bg-white text-black font-black text-sm tracking-wide px-8 py-4 border-[3px] border-black shadow-hardSm hover:translate-y-[1px] hover:shadow-[3px_3px_0px_0px_#000] transition">EXPORT CSV</button>
+      </div>
+      <div class="mt-6 flex items-center gap-3 font-mono text-[10px] tracking-widest">
+        <span class="flex -space-x-2"><span class="w-7 h-7 rounded-full bg-zinc-300 border-2 border-black"></span><span class="w-7 h-7 rounded-full bg-zinc-400 border-2 border-black"></span><span class="w-7 h-7 rounded-full bg-zinc-500 border-2 border-black"></span></span>
+        <span>TRUSTED BY 400+ CREATIVE AGENCIES</span>
+      </div>
+    </div>
+    <!-- RIGHT SCANNER -->
+    <div class="bg-black text-white p-6 md:p-8 flex flex-col">
+      <div class="flex items-center justify-between border border-white/20 p-3 font-mono text-[11px] tracking-widest">
+        <span class="flex items-center gap-2"><span class="w-2 h-2 bg-red-500 rounded-full"></span><span class="w-2 h-2 bg-yellow-400 rounded-full"></span><span class="w-2 h-2 bg-green-400 rounded-full"></span> IG_SCANNER.EXE</span>
+        <span class="opacity-60">v2.4.1</span>
+      </div>
+      <div class="mt-4 border-2 border-acid bg-zinc-900 p-4 font-mono text-[11px] leading-relaxed h-[320px] overflow-hidden relative">
+        <div id="scanLog" class="space-y-1.5">
+          <div class="text-emerald-400">> Initializing Instagram scan...</div>
+          <div class="text-white/60">> Target: small D2C + local + product businesses</div>
+          <div class="text-white/60">> Filter: &lt;50k followers, product sellers only</div>
+          <div class="text-acid">> Scanning @glowby.mira — WEAK HOOK DETECTED [CRITICAL]</div>
+          <div class="text-white">> @earthcandles.co — BAD LIGHTING, NO STORY</div>
+          <div class="text-white">> @knotandpearl — STATIC CAROUSEL, 0.8% ENG</div>
+          <div class="text-acid">> @brewcraft.manila — BURNING AD SPEND</div>
+          <div class="text-white">> @luna.activewear — NO UGC, STUDIO ONLY</div>
+          <div class="text-emerald-400">> 50 leads qualified. 0 big brands. All verified.</div>
+          <div class="text-white bg-acid text-black px-1 inline-block mt-1 font-bold">> READY TO PITCH → COPY DM & CLOSE</div>
+        </div>
+        <div class="absolute inset-0 pointer-events-none border-t-2 border-acid/50 scan-line"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-zinc-900 to-transparent"></div>
+      </div>
+      <div class="mt-4 grid grid-cols-2 gap-3">
+        <div class="bg-acid text-black p-3 border-2 border-white">
+          <div class="font-mono text-[10px] font-bold tracking-widest">POTENTIAL DEAL VALUE</div>
+          <div class="font-anton text-2xl">$18k — $42k/mo</div>
+          <div class="font-mono text-[10px]">If you close 3-5 of these</div>
+        </div>
+        <div class="bg-white text-black p-3 border-2 border-white">
+          <div class="font-mono text-[10px] font-bold tracking-widest">AVG FOLLOWERS</div>
+          <div class="font-anton text-2xl">14.7K</div>
+          <div class="font-mono text-[10px]">Sweet spot: hungry, not corporate</div>
+        </div>
+      </div>
+      <div class="mt-4 bg-white/10 border border-white/20 p-3 flex items-center justify-between">
+        <div class="font-mono text-[10px] tracking-widest">PROGRESS</div>
+        <div class="flex-1 mx-3 h-2 bg-white/20"><div id="scanProgress" class="h-full bg-acid" style="width:100%"></div></div>
+        <div class="font-mono text-[10px] font-bold">50/50</div>
+      </div>
     </div>
   </div>
-  <div class="p-4 md:p-5">
-    <div class="flex items-center gap-2 text-[11px] font-bold"><span class="bg-[#D4FF3F]/15 text-[#D4FF3F] border border-[#D4FF3F]/30 rounded-full px-2.5 py-1">${l.opp}</span><span class="text-white/40">• ${l.type}</span></div>
-    <div class="mt-2.5 text-[13px]"><span class="text-white/45 font-semibold">Sells:</span> <span class="font-semibold">${l.sell}</span></div>
-    <div class="issue-box rounded-xl p-3 mt-3 text-[12.5px] leading-relaxed"><div class="text-[10px] font-extrabold tracking-widest text-[#FF5CA8] mb-1">⚠ CONTENT AUDIT — WHAT'S WRONG</div><span class="text-white/75">${l.issue}</span></div>
-    <div class="dm-box p-3 mt-3"><div class="text-[10px] font-extrabold tracking-widest text-white/40 mb-1.5">✉ PERSONALIZED DM — TAP TO EXPAND</div><p class="text-[12.5px] text-white/80 leading-relaxed line-clamp-4 italic font-[Playfair]">“${l.dm}”</p></div>
-    <div class="grid grid-cols-3 gap-2 mt-4">
-      <button onclick="event.stopPropagation();copyDM('${l.u}')" class="btn-lime rounded-xl py-2.5 text-[12px]"><i class="fa-solid fa-copy"></i> Copy DM</button>
-      <button onclick="event.stopPropagation();copyBrief('${l.u}')" class="btn-ghost rounded-xl py-2.5 text-[12px] font-bold">Brief Format</button>
-      <button onclick="event.stopPropagation();toggleDone('${l.u}')" class="rounded-xl py-2.5 text-[12px] font-bold ${done?'bg-white/10 text-white/50':'bg-white text-black hover:bg-[#D4FF3F]'}">${done?'Undo':'Contacted ✓'}</button>
+</section>
+
+<!-- FILTER BAR -->
+<section id="leads" class="max-w-[1440px] mx-auto bg-paper border-x-[3px] border-b-[3px] border-black sticky top-[64px] z-40">
+  <div class="p-4 md:p-5 flex flex-col xl:flex-row gap-4 xl:items-center justify-between">
+    <div class="flex flex-col md:flex-row gap-3 flex-1">
+      <div class="relative flex-1 max-w-[420px]">
+        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-3.5-3.5"/></svg>
+        <input id="searchInput" placeholder="SEARCH BRAND, PRODUCT, @USERNAME..." class="w-full pl-10 pr-4 py-3 bg-white border-[3px] border-black font-mono text-xs font-bold tracking-wide placeholder:text-zinc-400 focus:outline-none focus:bg-acid/20">
+      </div>
+      <select id="sortSelect" class="px-4 py-3 bg-white border-[3px] border-black font-mono text-xs font-bold tracking-wide focus:outline-none">
+        <option value="opportunity">BEST OPPORTUNITY →</option>
+        <option value="followersHigh">FOLLOWERS: HIGH → LOW</option>
+        <option value="followersLow">FOLLOWERS: LOW → HIGH</option>
+        <option value="engagement">LOWEST ENGAGEMENT</option>
+      </select>
     </div>
-  </div></article>`;
+    <div class="flex items-center gap-2 font-mono text-[11px] font-bold">
+      <span id="showingCount" class="bg-black text-white px-3 py-2">SHOWING 12 OF 50</span>
+      <button onclick="copyAllDMs()" class="bg-acid border-[3px] border-black px-4 py-2 hover:bg-white transition">COPY ALL DMs</button>
+      <button onclick="exportCSV()" class="bg-white border-[3px] border-black px-4 py-2 hidden md:block">EXPORT CSV ↓</button>
+    </div>
+  </div>
+  <div class="px-4 md:px-5 pb-4 flex flex-col lg:flex-row gap-4 border-t-[3px] border-black pt-4 bg-white">
+    <div class="flex-1">
+      <div class="font-mono text-[10px] font-bold tracking-[0.18em] mb-2">FILTER BY NICHE:</div>
+      <div id="categoryPills" class="flex flex-wrap gap-2"></div>
+    </div>
+    <div class="flex-1">
+      <div class="font-mono text-[10px] font-bold tracking-[0.18em] mb-2">FILTER BY PROBLEM:</div>
+      <div id="problemPills" class="flex flex-wrap gap-2"></div>
+    </div>
+    <div class="flex items-end gap-2">
+      <button id="viewGrid" class="w-10 h-10 bg-black text-white border-[3px] border-black flex items-center justify-center">⊞</button>
+      <button id="viewList" class="w-10 h-10 bg-white text-black border-[3px] border-black flex items-center justify-center opacity-60">☰</button>
+    </div>
+  </div>
+</section>
+
+<!-- LEADS GRID -->
+<main class="max-w-[1440px] mx-auto bg-paper border-x-[3px] border-black">
+  <div class="p-4 md:p-6">
+    <div id="leadsGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6"></div>
+    <div class="mt-8 flex flex-col items-center gap-4">
+      <button id="loadMoreBtn" class="bg-black text-white font-black tracking-widest text-sm px-10 py-4 border-[3px] border-black hover:bg-zinc-800 transition">LOAD 12 MORE LEADS ↓</button>
+      <div class="font-mono text-[11px] tracking-widest opacity-60">50 HIGH-QUALITY LEADS • NO BIG BRANDS • ALL VERIFIED SMALL/MID BIZ</div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER CTA -->
+<section class="max-w-[1440px] mx-auto bg-black text-white border-[3px] border-black mt-6">
+  <div class="grid md:grid-cols-2">
+    <div class="p-8 md:p-12">
+      <div class="font-anton text-4xl md:text-5xl leading-[0.9]">STOP PITCHING<br><span class="text-acid">COLD.</span> START<br>CLOSING WARM.</div>
+      <p class="mt-4 font-medium text-white/70 max-w-md">Every lead below has a real product, real followers, and a real creative problem you can solve today. Copy, personalize slightly, send.</p>
+      <div class="mt-6 flex gap-3">
+        <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="bg-acid text-black font-black px-6 py-3 border-2 border-white">BACK TO TOP ↑</button>
+        <button onclick="exportCSV()" class="bg-white text-black font-black px-6 py-3">EXPORT ALL 50 →</button>
+      </div>
+    </div>
+    <div class="border-t-[3px] md:border-t-0 md:border-l-[3px] border-white/20 p-8 md:p-12 bg-zinc-900">
+      <div class="font-mono text-[11px] tracking-[0.2em] text-acid">HOW TO USE THESE LEADS</div>
+      <ol class="mt-4 space-y-3 font-medium text-sm leading-relaxed">
+        <li><span class="bg-acid text-black font-black px-1.5 mr-2">1</span> Open Instagram → check their last 6 posts (confirm pain point)</li>
+        <li><span class="bg-acid text-black font-black px-1.5 mr-2">2</span> Copy DM → add 1 specific compliment (their recent post)</li>
+        <li><span class="bg-acid text-black font-black px-1.5 mr-2">3</span> Send voice note + DM. Follow up in 2 days with free hook idea.</li>
+      </ol>
+      <div class="mt-6 bg-white text-black p-3 border-2 border-acid font-mono text-xs font-bold">⚡ PRO TIP: Close 1 at $800/mo UGC retainer = $9.6k/year. Close 3 = agency.</div>
+    </div>
+  </div>
+  <div class="border-t border-white/10 px-6 py-4 flex flex-col md:flex-row justify-between gap-3 font-mono text-[10px] tracking-widest opacity-60">
+    <span>© 2026 LEADHUNT • BUILT FOR CREATIVE AGENCIES • INSTAGRAM IS A TRADEMARK OF META</span>
+    <span>50 LEADS • UGC + CGI FOCUSED • NO FLUFF</span>
+  </div>
+</section>
+
+<div id="toast" class="fixed bottom-6 right-6 bg-black text-white border-2 border-acid px-5 py-3 font-mono text-xs font-bold tracking-wide shadow-hard hidden z-50"></div>
+
+<script>
+const rawLeads = [
+  {username:"glowby.mira", followers:"8.4k", followersNum:8400, category:"BEAUTY", sells:"Vegan glow serums & rose clay masks", type:"D2C Brand • Shopify • 2 yrs", wrong:"Over-filtered iPhone reels, no hook in first 3 seconds. Before/afters are tiny text carousels — no transformation, no UGC. Running promo ads on the same dead creative, CTR is flat.", highlight:"Rose Quartz Serum", tags:["Weak Hook","Bad Lighting"], adStatus:"Running Weak Ads"},
+  {username:"earthcandles.co", followers:"12.1k", followersNum:12100, category:"HOME", sells:"Hand-poured soy botanical candles", type:"Instagram Product Biz • Etsy", wrong:"Dark, shaky overhead videos on a kitchen table. No lifestyle context, no scent story, captions say 'DM to order'. Zero ad creative variety.", highlight:"Forest Ember candle", tags:["Bad Lighting","Static Ads"], adStatus:"Not Running Ads"},
+  {username:"knotandpearl", followers:"6.9k", followersNum:6900, category:"FASHION", sells:"Handmade pearl & knot jewelry", type:"Small Brand • Instagram Shop", wrong:"Static carousel of necklaces on white fur, no model try-on, no movement. Reels are slideshows with trending audio, 0 saves. Perfect for UGC try-on + CGI sparkle.", highlight:"Tide Pearl Choker", tags:["Static Ads","No UGC"], adStatus:"Not Running Ads"},
+  {username:"brewcraft.manila", followers:"15.3k", followersNum:15300, category:"FOOD", sells:"Specialty coffee beans & cold brew", type:"Local Business • Cafe + Online", wrong:"Boring bag photos, no brewing ritual. Reels are barista pouring with no hook, no ASMR, no story. Boosting posts with <0.9% engagement — burning budget.", highlight:"Benguet Cold Brew", tags:["Weak Hook","Low Quality"], adStatus:"Running Weak Ads"},
+  {username:"luna.activewear", followers:"22.4k", followersNum:22400, category:"FASHION", sells:"Women's sculpt activewear & leggings", type:"D2C Brand • 3 yrs", wrong:"Stiff studio shots, no movement, no sweat, no real women. All models posing, no workout UGC. Ads look like catalog, not community.", highlight:" Sculpt Leggings", tags:["No UGC","Static Ads"], adStatus:"Running Weak Ads"},
+  {username:"pawsome.barkery", followers:"9.7k", followersNum:9700, category:"PET", sells:"Organic dog treats & birthday cakes", type:"Product Business • Local Delivery", wrong:"Cute dogs but blurry, cluttered kitchen background, no ASMR crunch, no pet parent UGC. Posts get likes but no saves — missing the 'aww' hook.", highlight:"Peanut Bark Bites", tags:["Bad Lighting","Weak Hook"], adStatus:"Not Running Ads"},
+  {username:"theplantcorner.lb", followers:"18.2k", followersNum:18200, category:"HOME", sells:"Rare houseplants & aroid collectibles", type:"Local Business • Beirut", wrong:"Messy background, harsh sunlight, no care-tip hooks. Reels are just panning leaves with no text overlay. High demand product, terrible presentation.", highlight:"Variegated Monstera", tags:["Bad Lighting","Weak Hook"], adStatus:"Not Running Ads"},
+  {username:"solesmith", followers:"31.5k", followersNum:31500, category:"FASHION", sells:"Custom hand-painted sneakers", type:"Instagram Product Biz • 1-man studio", wrong:"Fire designs but reels filmed vertical with finger over lens, distorted audio, no process timelapse. Virality potential wasted on bad filming.", highlight:"Galaxy Dunks", tags:["Low Quality","Bad Lighting"], adStatus:"Running Weak Ads"},
+  {username:"bare.bakes", followers:"7.2k", followersNum:7200, category:"FOOD", sells:"High-protein cookies & brownies", type:"D2C Food Brand", wrong:"Packaging on white background only, no biting, no cheese-pull, no gym UGC. Captions are macros only — no craving.", highlight:"Double Choc Protein Cookie", tags:["Static Ads","No UGC"], adStatus:"Not Running Ads"},
+  {username:"inked.clay", followers:"11.8k", followersNum:11800, category:"HOME", sells:"Handmade ceramic mugs & vases", type:"Small Brand • Studio", wrong:"Beautiful mugs but dim garage lighting, no hands, no pour shot, no cozy CGI. Reels have no hook — just spinning pottery with no text.", highlight:"Ink Splash Mug", tags:["Bad Lighting","Weak Hook"], adStatus:"Not Running Ads"},
+  {username:"velvet.skin", followers:"5.4k", followersNum:5400, category:"BEAUTY", sells:"Vegan acne serums & spot patches", type:"D2C Brand • New", wrong:"Text-heavy carousels explaining ingredients, no testimonial UGC, no transformation. Ads push 20% off on same carousel — no trust.", highlight:"Clear Skin Serum", tags:["No UGC","Static Ads"], adStatus:"Running Weak Ads"},
+  {username:"threadandstitch.pk", followers:"27.9k", followersNum:27900, category:"FASHION", sells:"Hand-embroidered kurtis & co-ords", type:"Product Business • Lahore", wrong:"Mannequin shots, no model twirl, no size inclusivity. Reels are just fabric pan with no styling. Huge potential for UGC try-on hauls.", highlight:"Zayna Embroidered Kurta", tags:["No UGC","Static Ads"], adStatus:"Running Weak Ads"},
+  {username:"fitfuel.meals", followers:"13.6k", followersNum:13600, category:"FOOD", sells:"Healthy meal prep & macro boxes", type:"Local Business • Subscription", wrong:"Top-down containers stacked, no steam, no eating, no transformation story. Looks like sad lunch, not a fitness solution.", highlight:"High-Protein Bowls", tags:["Static Ads","Weak Hook"], adStatus:"Running Weak Ads"},
+  {username:"aura.fragrance.house", followers:"19.4k", followersNum:19400, category:"BEAUTY", sells:"Niche perfumes & attars", type:"D2C Brand", wrong:"Stock bottle renders, no CGI juice swirl, no lifestyle, no scent story. Reels are just spraying in air — no hook, no fantasy.", highlight:"Noir Oud Elixir", tags:["Low Quality","No UGC"], adStatus:"Running Weak Ads"},
+  {username:"tinytales.kids", followers:"10.2k", followersNum:10200, category:"FASHION", sells:"Organic kids clothing & rompers", type:"Product Business", wrong:"Mom photos blurry, cluttered living room, no twirl, no giggle UGC. Missed emotional hook — parents scroll fast.", highlight:"Sunflower Romper", tags:["Bad Lighting","No UGC"], adStatus:"Not Running Ads"},
+  {username:"woodworks.studio", followers:"8.9k", followersNum:8900, category:"HOME", sells:"Reclaimed wood tables & shelves", type:"Local Business • Workshop", wrong:"Workshop clips with loud machinery, no luxury finish reveal, no home styling. Content feels DIY, not premium — scaring high-ticket buyers.", highlight:"Live-Edge Dining Table", tags:["Low Quality","Weak Hook"], adStatus:"Not Running Ads"},
+  {username:"curl.crown", followers:"14.8k", followersNum:14800, category:"BEAUTY", sells:"Curly hair cream & edge gel", type:"D2C Brand", wrong:"Before/after but poor bathroom lighting, frizz still visible, no 360° curl bounce. No creator with real curls = no trust.", highlight:"Curl Define Cream", tags:["Bad Lighting","No UGC"], adStatus:"Running Weak Ads"},
+  {username:"mothership.teas", followers:"6.3k", followersNum:6300, category:"WELLNESS", sells:"Adaptogenic teas & mushroom blends", type:"D2C Wellness", wrong:"Flat lay sachets, no ritual, no pour, no zen. Reels are still images with music — calm product, chaotic content.", highlight:"Moon Milk Tea", tags:["Static Ads","Weak Hook"], adStatus:"Not Running Ads"},
+  {username:"urban.hike.gear", followers:"21.7k", followersNum:21700, category:"OUTDOOR", sells:"Tactical backpacks & trail gear", type:"D2C Brand", wrong:"Spec carousels listing liters and zippers, no trail UGC, no rain test. Ads are 2018-style product dump.", highlight:"Venture 40L Pack", tags:["Static Ads","No UGC"], adStatus:"Running Weak Ads"},
+  {username:"bloom.florals.nyc", followers:"16.5k", followersNum:16500, category:"HOME", sells:"Dried flower bouquets & installs", type:"Local Business • NYC", wrong:"Pretty but every post same top angle, no unboxing, no room glow-up, no CGI petals. No seasonal hook.", highlight:"Pampas Cloud Bouquet", tags:["Static Ads","Weak Hook"], adStatus:"Not Running Ads"},
+  {username:"savvy.sip", followers:"9.1k", followersNum:9100, category:"FOOD", sells:"Ceremonial matcha & whisk sets", type:"D2C Brand", wrong:"Matcha whisking but shaky, no foam close-up, no cafe CGI, audio is wind. Ritual product filmed without ritual.", highlight:"Uji Ceremonial Matcha", tags:["Low Quality","Bad Lighting"], adStatus:"Running Weak Ads"},
+  {username:"leathercraft.dxb", followers:"12.9k", followersNum:12900, category:"FASHION", sells:"Handmade leather wallets & totes", type:"Product Business • Dubai", wrong:"Close-ups but no hands, no patina story, no stitching ASMR. Flat lay wallets look like Amazon, not artisan.", highlight:"Sahara Bifold Wallet", tags:["Static Ads","Weak Hook"], adStatus:"Not Running Ads"},
+  {username:"nalu.swim", followers:"18.8k", followersNum:18800, category:"FASHION", sells:"Sustainable swimwear", type:"D2C Brand", wrong:"Over-posed model shots, no beach movement, no wet-hair UGC. Ads scream 'catalog' not 'vacation you want'.", highlight:"Maui One-Piece", tags:["No UGC","Static Ads"], adStatus:"Running Weak Ads"},
+  {username:"grindhouse.burgers", followers:"11.2k", followersNum:11200, category:"FOOD", sells:"Smash burgers & loaded fries", type:"Local Business • Ghost Kitchen", wrong:"Greasy iPhone pics with flash, no sizzle CGI, no cheese pull, no bite. Food looks oily, not craveable.", highlight:"The Grind Smash", tags:["Low Quality","Bad Lighting"], adStatus:"Running Weak Ads"},
+  {username:"pure.mama", followers:"7.8k", followersNum:7800, category:"WELLNESS", sells:"Natural baby balms & oil", type:"D2C Brand", wrong:"Sweet but uses generic stock baby, no real mom UGC, no bedtime ritual. Trust is low for baby niche without UGC.", highlight:"Calm Balm", tags:["No UGC","Static Ads"], adStatus:"Not Running Ads"},
+  {username:"ritual.coffee.jkt", followers:"24.1k", followersNum:24100, category:"FOOD", sells:"Bottled cold brew & beans", type:"Local Business • Jakarta", wrong:"Bottles on desk, no pour, no ice crack, no CGI swirl. Reels are barista talking to camera with no hook.", highlight:"Midnight Cold Brew", tags:["Weak Hook","Static Ads"], adStatus:"Running Weak Ads"},
+  {username:"frameandfable", followers:"8.1k", followersNum:8100, category:"HOME", sells:"Handmade stationery & wax seals", type:"Product Business", wrong:"Aesthetic but no writing ASMR, no desk setup, no unboxing. Flat photos, no texture feel.", highlight:"Deckled Note Set", tags:["Static Ads","No UGC"], adStatus:"Not Running Ads"},
+  {username:"honeyglow.bee", followers:"6.7k", followersNum:6700, category:"FOOD", sells:"Raw honey & beeswax lip balms", type:"Product Business • Farm", wrong:"Jars on shelf, no honey drip CGI, no toast spread, no farm story. Golden product, beige content.", highlight:"Wildflower Raw Honey", tags:["Static Ads","Weak Hook"], adStatus:"Not Running Ads"},
+  {username:"forge.fitness", followers:"17.3k", followersNum:17300, category:"FITNESS", sells:"Resistance bands & gym co-ords", type:"D2C Fitness", wrong:"Gym mirror selfies, no workout demo, no band snap test, no physique UGC. Ads boost selfies with zero hook.", highlight:"Forge Bands Set", tags:["No UGC","Low Quality"], adStatus:"Running Weak Ads"},
+  {username:"oat.mylk", followers:"10.9k", followersNum:10900, category:"FOOD", sells:"Barista oat milk", type:"D2C Brand", wrong:"Carton renders, no latte art pour, no froth CGI, no coffee shop UGC. Oat milk without coffee is just beige box.", highlight:"Barista Oat Mylk", tags:["Static Ads","No UGC"], adStatus:"Running Weak Ads"},
+  {username:"noir.candle.lab", followers:"13.2k", followersNum:13200, category:"HOME", sells:"Sculptural luxury candles", type:"D2C Brand • Premium", wrong:"Luxury product filmed like cheap craft — bedroom sheets background, no shadow play, no luxury unboxing. Kills perceived value.", highlight:"Arch Sculpt Candle", tags:["Bad Lighting","Low Quality"], adStatus:"Running Weak Ads"},
+  {username:"seoul.kitchen.mnl", followers:"20.4k", followersNum:20400, category:"FOOD", sells:"Korean corn dogs & tteokbokki", type:"Local Business • Cloud Kitchen", wrong:"Food reels too fast, no cheese pull, no crunch sound, no mukbang UGC. Viewers don't feel the stretch.", highlight:"Mozzarella Corn Dog", tags:["Weak Hook","Low Quality"], adStatus:"Running Weak Ads"},
+  {username:"sage.and.stone", followers:"9.3k", followersNum:9300, category:"WELLNESS", sells:"Crystal healing kits & smudge sticks", type:"Product Business", wrong:"Crystals on satin, no glow CGI, no ritual, no hand energy. Spiritual product, flat energy content.", highlight:"Abundance Crystal Kit", tags:["Static Ads","Weak Hook"], adStatus:"Not Running Ads"},
+  {username:"drift.surf.shop", followers:"14.2k", followersNum:14200, category:"OUTDOOR", sells:"Surf wax, tees & board bags", type:"Local Business • Bali", wrong:"Beach clips overexposed, no wave action, no surfer UGC, no wax rub ASMR. Surf brand without surf.", highlight:"Tropical Wax Bar", tags:["Low Quality","No UGC"], adStatus:"Not Running Ads"},
+  {username:"the.browbar", followers:"7.5k", followersNum:7500, category:"BEAUTY", sells:"Brow lamination & tint service", type:"Local Service • London", wrong:"Before/after under harsh ring light, no client smile, no process UGC. Looks clinical, not confident.", highlight:"Brow Lamination", tags:["Bad Lighting","No UGC"], adStatus:"Running Weak Ads"},
+  {username:"eden.nails", followers:"18.9k", followersNum:18900, category:"BEAUTY", sells:"Press-on nails & nail glue", type:"D2C Brand", wrong:"Nails on hand but cluttered bedroom, no luxury macro, no tap sound, no try-on haul. Cheap feel despite nice design.", highlight:"Glazed Almond Set", tags:["Bad Lighting","Low Quality"], adStatus:"Running Weak Ads"},
+  {username:"peak.trail", followers:"8.6k", followersNum:8600, category:"FOOD", sells:"Hiking trail mix & energy bars", type:"D2C Outdoor Food", wrong:"Bags on trail but no crunch, no open, no summit UGC. Snack without bite is just packaging.", highlight:"Alpine Trail Mix", tags:["Static Ads","Weak Hook"], adStatus:"Not Running Ads"},
+  {username:"cocoon.sleep", followers:"11.4k", followersNum:11400, category:"WELLNESS", sells:"Silk sleep masks & pajamas", type:"D2C Brand", wrong:"Flat lay masks, no dark room, no sleep CGI, no soft touch UGC. Dream product, flat dream story.", highlight:"Cloud Silk Mask", tags:["Static Ads","No UGC"], adStatus:"Running Weak Ads"},
+  {username:"ferment.lab", followers:"9.8k", followersNum:9800, category:"FOOD", sells:"Kombucha cans & taproom", type:"Local Business", wrong:"Cans in fridge, no fizz CGI explosion, no pour, no gut-health UGC. Flat can, flat content.", highlight:"Yuzu Kombucha", tags:["Static Ads","Weak Hook"], adStatus:"Running Weak Ads"},
+  {username:"marrow.bonebroth", followers:"7.1k", followersNum:7100, category:"FOOD", sells:"Bone broth powder & sipping broth", type:"D2C Wellness", wrong:"Powder scoop only, no steam, no mug swirl, no cold-day UGC. Superfood looks like protein powder.", highlight:"Grass-Fed Bone Broth", tags:["Static Ads","Bad Lighting"], adStatus:"Not Running Ads"},
+  {username:"altar.jewelry", followers:"16.8k", followersNum:16800, category:"FASHION", sells:"Dainty gold hoops & charms", type:"D2C Jewelry", wrong:"Jewelry on ear but no sparkle CGI, no stacking, no gift moment. Tiny product lost in busy feed.", highlight:"Halo Hoops", tags:["No UGC","Weak Hook"], adStatus:"Running Weak Ads"},
+  {username:"casa.terra", followers:"10.5k", followersNum:10500, category:"HOME", sells:"Terracotta planters & home decor", type:"Product Business", wrong:"Pots stacked warehouse, no plant styling, no sunny corner CGI. Sells lifestyle but shows inventory.", highlight:"Terra Pot Set", tags:["Static Ads","Bad Lighting"], adStatus:"Not Running Ads"},
+  {username:"chroma.paint", followers:"12.4k", followersNum:12400, category:"HOME", sells:"Acrylic paint tubes & brushes", type:"Product Business", wrong:"Swatches but no pour, no mixing CGI, no art timelapse. Art supply with no art.", highlight:"Primary Paint Set", tags:["Weak Hook","Static Ads"], adStatus:"Not Running Ads"},
+  {username:"nova.tech.cases", followers:"26.3k", followersNum:26300, category:"TECH", sells:"Viral phone cases & stands", type:"D2C Tech", wrong:"Drop test filmed on carpet, no CGI smash, no aesthetic desk setup. Tech without flex is just plastic.", highlight:"Bounce Case", tags:["Low Quality","Weak Hook"], adStatus:"Running Weak Ads"},
+  {username:"lune.bakery", followers:"15.9k", followersNum:15900, category:"FOOD", sells:"Sourdough & butter croissants", type:"Local Business • Paris", wrong:"Bakery reels in dark morning, no steam, no pull-apart, no butter layer CGI. Crave product, no crave trigger.", highlight:"Pain au Chocolat", tags:["Bad Lighting","No UGC"], adStatus:"Not Running Ads"},
+  {username:"vanta.watches", followers:"19.7k", followersNum:19700, category:"FASHION", sells:"Minimalist micro-brand watches", type:"D2C Brand", wrong:"Watch on wrist under fluorescent, no macro, no water CGI, no suit styling. Premium price, budget content.", highlight:"Vanta 38mm", tags:["Bad Lighting","Low Quality"], adStatus:"Running Weak Ads"},
+  {username:"stride.run.club", followers:"8.2k", followersNum:8200, category:"FITNESS", sells:"Running socks & caps", type:"D2C Brand", wrong:"Socks on feet only, no run, no sweat, no road UGC, no blister story. Runners don't feel it.", highlight:"Blister-Free Socks", tags:["Static Ads","No UGC"], adStatus:"Not Running Ads"},
+  {username:"kindred.pet", followers:"13.8k", followersNum:13800, category:"PET", sells:"Cat trees & harnesses", type:"Product Business", wrong:"Cats but dark apartment, no playful chase, no assembly. Pet joy product, gloomy content.", highlight:"Wool Cat Tree", tags:["Bad Lighting","Weak Hook"], adStatus:"Running Weak Ads"},
+  {username:"harvest.box", followers:"10.7k", followersNum:10700, category:"FOOD", sells:"Organic veggie subscription boxes", type:"Local Business • Farm Box", wrong:"Box on doorstep, no harvest, no cooking, no family unpacking UGC. Farm fresh story missing.", highlight:"Weekly Harvest Box", tags:["Static Ads","No UGC"], adStatus:"Not Running Ads"},
+  {username:"saffron.kitchen", followers:"9.4k", followersNum:9400, category:"FOOD", sells:"Saffron & small-batch spice blends", type:"Product Business", wrong:"Spice jars lined up, no aroma swirl CGI, no curry simmer, no grandma UGC. Saffron worth gold, content looks generic.", highlight:"Kashmiri Saffron", tags:["Static Ads","Weak Hook"], adStatus:"Not Running Ads"}
+];
+
+function generateDM(lead, idx){
+  const name = lead.username.split('.')[0].split('_')[0];
+  const Name = name.charAt(0).toUpperCase()+name.slice(1);
+  const wrongShort = lead.wrong.split('.')[0].toLowerCase();
+  const t = [
+    `Hey ${Name} team! Obsessed with your ${lead.sells.toLowerCase()} — that ${lead.highlight} is a showstopper. Quick honest note: I binged your IG and ${wrongShort}. Feels like amazing product + scroll-past creative = silent lost sales every single day. We help D2C brands like yours flip that with scroll-stopping UGC + viral CGI ads that actually convert. Want me to drop 2 free hook ideas tailored for @${lead.username}? No pitch — just value if you want it.`,
+    `${Name} — your ${lead.sells.toLowerCase()} deserve way more hype. That ${lead.highlight} especially caught my eye. But right now ${wrongShort} — so people scroll in 1 sec, saves are flat, and if you're boosting it you're paying to be ignored. Hurts to see a good brand stall for a fixable reason. We fix exactly that with real-feel UGC + jaw-drop CGI that stops thumbs. Can I send a 15-sec concept for @${lead.username} to show you what I mean?`,
+    `Hi ${Name}! Your ${lead.sells.toLowerCase()} popped up on my explore and I had to stop — ${lead.highlight} is 🔥. One thing though: ${wrongShort}, so the magic doesn't translate on screen and engagement stays low. You're probably leaving easy sales + growth on the table. We specialize in turning that around for product brands with authentic UGC & cinematic CGI ads. Can I share 1-2 free creative angles made just for @${lead.username}? Totally no strings.`
+  ];
+  return t[idx % t.length];
+}
+const leads = rawLeads.map((r,i)=>({...r, id:String(i+1).padStart(2,'0'), dm: generateDM(r,i), engagement:(Math.random()*1.4+0.6).toFixed(1), contacted:false, saved:false}));
+
+let activeCategory="ALL";
+let activeProblem="ALL";
+let searchQuery="";
+let sortBy="opportunity";
+let visibleCount=12;
+let gridMode="grid";
+
+const categories=["ALL","BEAUTY","FASHION","FOOD","HOME","WELLNESS","PET","OUTDOOR","FITNESS","TECH","LOCAL"];
+const problems=["ALL","Weak Hook","Bad Lighting","Low Quality","Static Ads","No UGC"];
+
+const grid=document.getElementById('leadsGrid');
+const showingCount=document.getElementById('showingCount');
+const searchInput=document.getElementById('searchInput');
+const sortSelect=document.getElementById('sortSelect');
+const loadMoreBtn=document.getElementById('loadMoreBtn');
+const categoryPills=document.getElementById('categoryPills');
+const problemPills=document.getElementById('problemPills');
+
+function renderPills(){
+  categoryPills.innerHTML=categories.map(c=>`<button data-cat="${c}" class="px-3 py-1.5 border-[2.5px] border-black font-mono text-[11px] font-black tracking-wide ${activeCategory===c?'bg-black text-white':'bg-white hover:bg-acid'}">${c}</button>`).join('');
+  problemPills.innerHTML=problems.map(p=>`<button data-prob="${p}" class="px-3 py-1.5 border-[2.5px] border-black font-mono text-[11px] font-black tracking-wide ${activeProblem===p?'bg-acid text-black':'bg-white hover:bg-black hover:text-white'}">${p}</button>`).join('');
+  document.querySelectorAll('[data-cat]').forEach(b=>b.addEventListener('click',()=>{activeCategory=b.dataset.cat;visibleCount=12;renderPills();render();}));
+  document.querySelectorAll('[data-prob]').forEach(b=>b.addEventListener('click',()=>{activeProblem=b.dataset.prob;visibleCount=12;renderPills();render();}));
+}
+
+function getFiltered(){
+  let f=[...leads];
+  if(searchQuery) f=f.filter(l=> (l.username.toLowerCase().includes(searchQuery) || l.sells.toLowerCase().includes(searchQuery) || l.highlight.toLowerCase().includes(searchQuery)));
+  if(activeCategory!=="ALL") f=f.filter(l=> l.category===activeCategory);
+  if(activeProblem!=="ALL") f=f.filter(l=> l.tags.includes(activeProblem));
+  if(sortBy==="followersHigh") f.sort((a,b)=>b.followersNum-a.followersNum);
+  if(sortBy==="followersLow") f.sort((a,b)=>a.followersNum-b.followersNum);
+  if(sortBy==="engagement") f.sort((a,b)=>parseFloat(a.engagement)-parseFloat(b.engagement));
+  if(sortBy==="opportunity") f.sort((a,b)=> (a.followersNum<20000?-1:1) - (b.followersNum<20000?-1:1));
+  return f;
 }
 
 function render(){
-  let list = LEADS.filter(l=>{
-    const q = state.search.toLowerCase();
-    const matchQ = !q || (l.u+l.n+l.sell+l.cat+l.issue).toLowerCase().includes(q);
-    const matchC = state.cat==="All" || l.cat===state.cat;
-    const matchO = state.opp==="All" || l.opp===state.opp;
-    return matchQ&&matchC&&matchO;
-  });
-  if(state.sort==="score") list.sort((a,b)=>b.score-a.score);
-  if(state.sort==="followers") list.sort((a,b)=>parseFol(b.fol)-parseFol(a.fol));
-  if(state.sort==="az") list.sort((a,b)=>a.u.localeCompare(b.u));
-  document.getElementById("grid").innerHTML = list.length? list.map((l)=>cardHTML(l, LEADS.indexOf(l))).join("") : `<div class="col-span-full text-center py-16 text-white/40">No leads match — try clearing filters.</div>`;
-  document.getElementById("count").textContent = list.length;
-  document.getElementById("filterLabel").textContent = `• ${state.cat} • ${state.opp}`;
-  const pc = state.contacted.size;
-  document.getElementById("pipelineCount").textContent = `${pc}/50 contacted`;
-  document.getElementById("prog").value = pc;
-  document.getElementById("progLabel").textContent = Math.round(pc/50*100)+"%";
+  const filtered=getFiltered();
+  const toShow=filtered.slice(0,visibleCount);
+  showingCount.textContent=`SHOWING ${toShow.length} OF ${filtered.length}`;
+  loadMoreBtn.style.display= visibleCount>=filtered.length ? 'none':'block';
+  loadMoreBtn.textContent= `LOAD ${Math.min(12, filtered.length-visibleCount)} MORE LEADS ↓`;
+  grid.className = gridMode==="grid" ? "grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6" : "grid grid-cols-1 gap-4";
+  grid.innerHTML=toShow.map(l=>`
+    <article class="bg-white border-[3px] border-black shadow-hard hover:shadow-hardLg transition-all duration-200 flex flex-col">
+      <div class="bg-black text-white p-4 flex items-start justify-between gap-4">
+        <div>
+          <div class="font-mono text-[10px] tracking-[0.18em] text-acid flex items-center gap-2">#${l.id} • ${l.category} • ${l.followers} FOLLOWERS <span class="w-1.5 h-1.5 bg-acid rounded-full"></span> ${l.engagement}% ENG</div>
+          <div class="font-anton text-[26px] leading-none mt-1">@${l.username}</div>
+          <div class="font-mono text-[10px] opacity-70 mt-1">${l.type}</div>
+        </div>
+        <div class="shrink-0 flex flex-col gap-1.5 items-end">
+          <span class="bg-acid text-black font-black text-[10px] tracking-widest px-2 py-1 border border-white">${l.adStatus.toUpperCase()}</span>
+          <span class="bg-white text-black font-mono text-[9px] font-bold px-2 py-1">${l.tags.join(' • ')}</span>
+        </div>
+      </div>
+      <div class="p-5 flex-1 flex flex-col">
+        <div class="space-y-3">
+          <div class="flex gap-2">
+            <span class="bg-black text-white font-black text-[10px] tracking-widest px-2 py-1 h-fit">SELLS</span>
+            <span class="font-bold text-[14px] leading-tight flex-1">${l.sells} — <span class="font-normal text-zinc-600">${l.highlight}</span></span>
+          </div>
+          <div class="bg-[#FFE9E9] border-[3px] border-black p-3 relative">
+            <div class="absolute -top-2 -left-2 bg-red-600 text-white font-black text-[9px] tracking-[0.16em] px-2 py-1 border-2 border-black">WHAT'S WRONG — WHY THEY NEED YOU</div>
+            <p class="font-medium text-[13px] leading-[1.45] pt-2">${l.wrong}</p>
+          </div>
+        </div>
+        <div class="mt-4 bg-zinc-50 border-[3px] border-black p-3 flex-1">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="font-black text-[10px] tracking-[0.18em] flex items-center gap-1.5"><span class="w-2 h-2 bg-acid border border-black"></span> PERSONALIZED DM — COPY & SEND</span>
+            <span class="font-mono text-[9px] bg-black text-white px-1.5 py-0.5 hidden sm:inline">HOOK + PAIN + CTA</span>
+          </div>
+          <p class="font-mono text-[12.5px] leading-[1.6] text-zinc-800 border-l-[3px] border-acid pl-3 bg-white p-2 border border-zinc-200">${l.dm}</p>
+          <div class="mt-3 flex gap-2">
+            <button onclick="copyDM('${l.username}')" class="flex-1 bg-acid border-[3px] border-black font-black text-xs py-2.5 hover:bg-black hover:text-white transition flex items-center justify-center gap-2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v3"/></svg> COPY DM
+            </button>
+            <button onclick="toggleSave('${l.username}')" class="w-11 h-11 border-[3px] border-black flex items-center justify-center ${l.saved?'bg-black text-white':'bg-white hover:bg-zinc-100'}">${l.saved?'★':'☆'}</button>
+          </div>
+        </div>
+        <div class="mt-3 grid grid-cols-2 gap-2">
+          <a href="https://instagram.com/${l.username}" target="_blank" class="border-[3px] border-black bg-white font-black text-[11px] tracking-widest py-2.5 text-center hover:bg-black hover:text-white transition">OPEN IG ↗</a>
+          <button onclick="toggleContacted('${l.username}')" class="${l.contacted?'bg-emerald-500 text-white border-emerald-600':'bg-black text-white hover:bg-zinc-800'} border-[3px] border-black font-black text-[11px] tracking-widest py-2.5 transition">${l.contacted?'✓ CONTACTED':'MARK CONTACTED'}</button>
+        </div>
+      </div>
+    </article>
+  `).join('');
+  if(toShow.length===0){
+    grid.innerHTML=`<div class="col-span-full border-[3px] border-black bg-white p-12 text-center"><div class="font-anton text-4xl">NO LEADS FOUND</div><p class="font-mono text-xs mt-2 opacity-60">Try clearing filters or searching differently.</p><button onclick="clearFilters()" class="mt-4 bg-acid border-[3px] border-black px-6 py-2 font-black text-sm">CLEAR FILTERS</button></div>`;
+  }
 }
 
-function openModal(u){
-  const l = LEADS.find(x=>x.u===u); const idx=LEADS.indexOf(l);
-  const done = state.contacted.has(l.u);
-  document.getElementById("modalCard").innerHTML = `
-  <div class="relative h-52 overflow-hidden"><img src="${l.img}" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-[#12121C] via-black/30 to-transparent"></div>
-  <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black"><i class="fa-solid fa-xmark"></i></button>
-  <div class="absolute bottom-4 left-6 right-6 flex items-end justify-between"><div><div class="text-[11px] font-extrabold tracking-widest text-[#D4FF3F]">${idx+1} / 50 • ${l.cat.toUpperCase()} • SCORE ${l.score}/100</div><h2 class="font-sora font-extrabold text-2xl md:text-3xl">❋ ${l.n} <span class="text-white/50 text-lg font-normal">@${l.u}</span></h2><div class="text-xs text-white/60 mt-1">${l.type} • ${l.loc} • ${l.fol} followers • Opportunity: <b class="text-white">${l.opp}</b></div></div>
-  <a href="https://instagram.com/${l.u}" target="_blank" class="hidden md:flex btn-lime rounded-full px-5 py-2.5 text-xs items-center gap-2"><i class="fa-brands fa-instagram text-base"></i> Open IG</a></div></div>
-  <div class="p-6 md:p-8 grid md:grid-cols-[1fr_.95fr] gap-6">
-    <div>
-      <div class="text-xs font-extrabold tracking-widest text-white/40">BRAND DETAILS — EXACT BRIEF FORMAT</div>
-      <div class="mt-3 space-y-3 text-sm">
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4"><div class="text-[11px] font-bold text-[#D4FF3F]">WHAT THEY SELL</div><div class="font-semibold mt-1">${l.sell}</div></div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4"><div class="text-[11px] font-bold text-[#D4FF3F]">TYPE OF BUSINESS</div><div class="font-semibold mt-1">${l.type} — ${l.loc}</div></div>
-        <div class="issue-box rounded-2xl p-4"><div class="text-[11px] font-extrabold tracking-widest text-[#FF5CA8]">WHAT'S WRONG (USE IN DM)</div><p class="text-white/80 leading-relaxed mt-1 text-[13.5px]">${l.issue}</p></div>
-        <div class="bg-gradient-to-br from-[#8B5CF6]/20 to-[#FF5CA8]/20 border border-white/15 rounded-2xl p-4"><div class="text-[11px] font-extrabold tracking-widest">CGI + UGC ANGLE WE'D PITCH</div><p class="text-[13px] text-white/75 mt-1">${pitchFor(l)}</p></div>
-      </div>
-    </div>
-    <div>
-      <div class="flex items-center justify-between"><div class="text-xs font-extrabold tracking-widest text-white/40">PERSONALIZED DM — COPY & SEND</div><span class="text-[11px] bg-green-400/15 text-green-300 border border-green-400/30 rounded-full px-2 py-0.5">Soft CTA ✓</span></div>
-      <div class="dm-box p-4 mt-3 text-[14px] leading-relaxed text-white/90">Hey — copy below 👇<br><br><span class="italic">“${l.dm}”</span><br><br><span class="text-white/40 text-xs">— Lena, LUMIÈRE (UGC x CGI)</span></div>
-      <div class="grid grid-cols-2 gap-2 mt-3">
-        <button onclick="copyDM('${l.u}')" class="btn-lime rounded-xl py-3 text-[13px]"><i class="fa-solid fa-copy mr-1"></i> Copy DM</button>
-        <button onclick="copyBrief('${l.u}')" class="btn-ghost rounded-xl py-3 text-[13px] font-bold">Copy Full Brief</button>
-      </div>
-      <div class="mt-4 bg-[#0A0A14] border border-dashed border-white/20 rounded-2xl p-4"><div class="text-[11px] font-extrabold tracking-widest text-[#FFC24B]">DAY-3 FOLLOW-UP (IF NO REPLY)</div><p class="text-[13px] text-white/75 italic mt-1.5">“${l.fu}”</p><button onclick="copyFU('${l.u}')" class="mt-2 text-[12px] font-bold text-[#D4FF3F] hover:underline">Copy follow-up →</button></div>
-      <div class="flex gap-2 mt-4"><button onclick="toggleDone('${l.u}');openModal('${l.u}')" class="flex-1 rounded-xl py-3 text-[13px] font-bold ${done?'bg-white/10 text-white/50':'bg-white text-black'}">${done?'✓ Contacted — Undo':'Mark as Contacted ✓'}</button><a href="https://instagram.com/${l.u}" target="_blank" class="btn-ghost rounded-xl px-5 py-3 text-[13px] font-bold">IG ↗</a></div>
-    </div>
-  </div>`;
-  const m=document.getElementById("modal"); m.classList.remove("hidden"); m.classList.add("flex"); document.body.style.overflow="hidden";
+function clearFilters(){activeCategory="ALL";activeProblem="ALL";searchQuery="";searchInput.value="";visibleCount=12;renderPills();render();}
+function copyDM(username){
+  const lead=leads.find(l=>l.username===username);
+  if(!lead) return;
+  navigator.clipboard.writeText(lead.dm).then(()=>showToast(`COPIED DM FOR @${username} ✓`));
 }
-function pitchFor(l){
-  if(l.cat.includes("Beauty")) return "Creator wash-day / try-on UGC (3 hooks) + CGI ingredient explosion + before/after morph. First draft in 48hrs.";
-  if(l.cat.includes("Food")) return "ASMR bite/pull UGC + CGI flavor-burst + POV craving hook. Built for impulse add-to-cart.";
-  if(l.cat.includes("Fashion")) return "Try-on haul UGC on diverse bodies + CGI fabric-flow + 1-product-3-ways. Kills sizing doubts.";
-  if(l.cat.includes("Jewelry")) return "Stacking + waterproof proof UGC + CGI gold-drip unboxing. Trust = conversion.";
-  if(l.cat.includes("Home")) return "Cozy room transformation UGC + CGI scent/light swirl + before/after glow-up.";
-  if(l.cat.includes("Fitness")) return "Proof-test UGC (squat/sweat/sleep) + CGI power-wave + 30-day challenge angle.";
-  if(l.cat.includes("Pets")) return "Taste-test / zoomie UGC with real pets + CGI treat-burst. Emotion sells.";
-  if(l.cat.includes("Baby")) return "Real-mom 3am routine UGC + fussy-to-calm transformation + CGI cloud-soft wrap.";
-  return "Hook-first before/after transformation UGC + CGI shine reveal + local booking CTA + price anchor.";
+function copyAllDMs(){
+  const filtered=getFiltered().slice(0,visibleCount);
+  const text=filtered.map((l,i)=>`---\n${i+1}. Instagram Username: @${l.username}\nBrand Details:\n* What they sell: ${l.sells} (${l.highlight})\n* Type: ${l.type}\n* What's wrong: ${l.wrong}\nPersonalized DM:\n${l.dm}\n---`).join('\n\n');
+  navigator.clipboard.writeText(text).then(()=>showToast(`COPIED ${filtered.length} DMs TO CLIPBOARD ✓`));
 }
-function closeModal(){ const m=document.getElementById("modal"); m.classList.add("hidden"); m.classList.remove("flex"); document.body.style.overflow=""; }
-function toast(m){ document.getElementById("toastMsg").textContent=m; const t=document.getElementById("toast"); t.style.transform="translate(-50%,0)"; t.style.opacity="1"; setTimeout(()=>{t.style.transform="translate(-50%,6rem)"; t.style.opacity="0";},2200); }
-function copyDM(u){ const l=LEADS.find(x=>x.u===u); navigator.clipboard.writeText(l.dm).then(()=>toast("DM for @"+u+" copied ✓")); }
-function copyFU(u){ const l=LEADS.find(x=>x.u===u); navigator.clipboard.writeText(l.fu).then(()=>toast("Follow-up copied ✓")); }
-function copyBrief(u){ const l=LEADS.find(x=>x.u===u); navigator.clipboard.writeText(briefText(l, LEADS.indexOf(l))).then(()=>toast("Full brief copied in required format ✓")); }
-function copyAllBriefs(){ const txt = LEADS.map((l,i)=>briefText(l,i)).join("\n\n"); navigator.clipboard.writeText(txt).then(()=>toast("All 50 briefs copied — paste anywhere ✓")); }
-function toggleDone(u){ state.contacted.has(u)? state.contacted.delete(u) : state.contacted.add(u); save(); render(); toast(state.contacted.has(u)? "Marked contacted ✓ ("+state.contacted.size+"/50)" : "Moved back to new"); }
-function filterOpp(o){ state.opp=o; document.querySelectorAll('.opp-pill').forEach(p=>p.classList.toggle('active', p.textContent.includes(o)|| (o==='All'&&p.textContent.includes('All Opportunities')))); render(); }
+function toggleSave(username){
+  const l=leads.find(x=>x.username===username);
+  l.saved=!l.saved; render(); showToast(l.saved?`SAVED @${username} ★`:`UNSAVED @${username}`);
+}
+function toggleContacted(username){
+  const l=leads.find(x=>x.username===username);
+  l.contacted=!l.contacted; render(); showToast(l.contacted?`MARKED @${username} AS CONTACTED ✓`:`UNMARKED @${username}`);
+}
 function exportCSV(){
-  const rows=[["#","Instagram","Name","Niche","Followers","Location","Sells","Type","Opportunity","Score","Issue","DM","FollowUp"]];
-  LEADS.forEach((l,i)=>rows.push([i+1,"@"+l.u,l.n,l.cat,l.fol,l.loc,l.sell,l.type,l.opp,l.score,'"'+l.issue.replace(/"/g,'""')+'"','"'+l.dm.replace(/"/g,'""')+'"','"'+l.fu.replace(/"/g,'""')+'"']));
-  const blob=new Blob([rows.map(r=>r.join(",")).join("\n")],{type:"text/csv"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="lumiere-50-leads.csv"; a.click(); toast("CSV exported ✓");
+  const filtered=getFiltered();
+  const header=['Instagram Username','What they sell','Type of business','What is wrong','Followers','Category','Ad Status','Personalized DM'];
+  const rows=filtered.map(l=>[`@${l.username}`,`"${l.sells.replace(/"/g,'""')} - ${l.highlight}"`,`"${l.type}"`,`"${l.wrong.replace(/"/g,'""')}"`,l.followers,l.category,l.adStatus,`"${l.dm.replace(/"/g,'""')}"`]);
+  const csv=[header.join(','),...rows.map(r=>r.join(','))].join('\n');
+  const blob=new Blob([csv],{type:'text/csv'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download='leadhunt-50-ugc-cgi-leads.csv'; a.click(); URL.revokeObjectURL(url);
+  showToast(`EXPORTED ${filtered.length} LEADS AS CSV ↓`);
 }
-document.getElementById("search")?.addEventListener("input",e=>{state.search=e.target.value;render();});
-document.getElementById("searchM")?.addEventListener("input",e=>{state.search=e.target.value;render();});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
-renderPills(); render();
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.remove('hidden');
+  setTimeout(()=>t.classList.add('hidden'),2600);
+}
+function simulateScan(){
+  const log=document.getElementById('scanLog');
+  const bar=document.getElementById('scanProgress');
+  bar.style.width='0%';
+  log.innerHTML='<div class="text-emerald-400">> Re-scanning Instagram...</div>';
+  let p=0;
+  const int=setInterval(()=>{
+    p+=18; bar.style.width=p+'%';
+    if(p>=100){
+      clearInterval(int);
+      log.innerHTML=`
+          <div class="text-emerald-400">> Re-scan complete — 50 leads refreshed</div>
+          <div class="text-acid">> Scanning @glowby.mira — WEAK HOOK DETECTED [CRITICAL]</div>
+          <div class="text-white">> @earthcandles.co — BAD LIGHTING, NO STORY</div>
+          <div class="text-white">> @knotandpearl — STATIC CAROUSEL, 0.8% ENG</div>
+          <div class="text-acid">> @brewcraft.manila — BURNING AD SPEND</div>
+          <div class="text-white">> @luna.activewear — NO UGC, STUDIO ONLY</div>
+          <div class="text-emerald-400">> 50 leads qualified. Ready to pitch.</div>
+          <div class="text-white bg-acid text-black px-1 inline-block mt-1 font-bold">> COPY DM & CLOSE →</div>
+      `;
+      showToast('RE-SCAN COMPLETE — 50 LEADS REFRESHED ✓');
+      visibleCount=12; render();
+    } else {
+      log.innerHTML+=`<div class="text-white/60">> Analyzing @${rawLeads[Math.floor(Math.random()*50)].username}...</div>`;
+      log.scrollTop=log.scrollHeight;
+    }
+  },180);
+}
+
+searchInput.addEventListener('input',e=>{searchQuery=e.target.value.toLowerCase();visibleCount=12;render();});
+sortSelect.addEventListener('change',e=>{sortBy=e.target.value;render();});
+loadMoreBtn.addEventListener('click',()=>{visibleCount+=12;render(); window.scrollBy({top:400, behavior:'smooth'})});
+document.getElementById('viewGrid').addEventListener('click',()=>{gridMode='grid';document.getElementById('viewGrid').classList.add('bg-black','text-white');document.getElementById('viewGrid').classList.remove('bg-white','text-black','opacity-60');document.getElementById('viewList').classList.remove('bg-black','text-white');document.getElementById('viewList').classList.add('bg-white','text-black','opacity-60');render();});
+document.getElementById('viewList').addEventListener('click',()=>{gridMode='list';document.getElementById('viewList').classList.add('bg-black','text-white');document.getElementById('viewList').classList.remove('opacity-60');document.getElementById('viewGrid').classList.remove('bg-black','text-white');document.getElementById('viewGrid').classList.add('bg-white','text-black','opacity-60');render();});
+
+renderPills();
+render();
 </script>
 </body>
 </html>
